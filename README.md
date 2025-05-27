@@ -32,7 +32,7 @@ BookMark is built to simplify task tracking, team communication, and workflow or
 
 A running list of planned and implemented features.
 
-### ✉️ Email for Ticket Creation
+### 📩 Email for Ticket Creation
 Set up an email account to automatically convert incoming messages into help desk tickets.
 
 - No installations or extra training required
