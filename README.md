@@ -4,7 +4,12 @@
 ---
 
 *A link to the landing page:*
-*https://bookisonfire.github.io/BookMark/*
+https://bookisonfire.github.io/BookMark/
+
+---
+
+*Find me on Discord*
+https://discord.gg/RBGT94hW
 
 ---
 
