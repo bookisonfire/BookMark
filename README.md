@@ -8,7 +8,7 @@ https://bookisonfire.github.io/BookMark/
 
 ---
 
-*Find me on Discord*
+*Find me on Discord:*
 https://discord.gg/RBGT94hW
 
 ---
