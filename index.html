@@ -40,40 +40,40 @@
       transform: scale(0.98);
     }
     .hero-bg-fade {
-  position: relative;
-  background-image: url('https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/dashboard.png?raw=true');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-  overflow: hidden;
-}
+      position: relative;
+      background-image: url('https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/dashboard.png?raw=true');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1;
+      overflow: hidden;
+    }
 
-.hero-bg-fade::before,
-.hero-bg-fade::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 120px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.hero-bg-fade::before {
-  top: 0;
-  background: linear-gradient(to bottom, var(--dark-navy), transparent);
-}
-
-.hero-bg-fade::after {
-  bottom: 0;
-  background: linear-gradient(to top, var(--dark-navy), transparent);
-}
-
-.hero-bg-fade > .content-wrapper {
-  position: relative;
-  z-index: 3;
-}
+    .hero-bg-fade::before,
+    .hero-bg-fade::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    
+    .hero-bg-fade::before {
+      top: 0;
+      background: linear-gradient(to bottom, var(--dark-navy), transparent);
+    }
+    
+    .hero-bg-fade::after {
+      bottom: 0;
+      background: linear-gradient(to top, var(--dark-navy), transparent);
+    }
+    
+    .hero-bg-fade > .content-wrapper {
+      position: relative;
+      z-index: 3;
+    }
 
   </style>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
