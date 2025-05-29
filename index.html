@@ -3,111 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-<body class="bg-gradient-to-br from-slate-50 to-slate-100 text-gray-800 font-sans">
+  <title>BookMark – Help Desk Ticketing Made Simple</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-green: #3fcf8e;
+      --dark-navy: #1a2730;
+      --accent-blue: #4f8cff;
+      --deep-green: #115b22;
+      --deep-blue: #09253c;
+      --secondary-green: #339d6a;
+    }
+    body {
+      background: var(--dark-navy);
+      color: #f8fafc;
+    }
+    .btn-primary {
+      background: var(--primary-green);
+      color: #09253c;
+      font-weight: 700;
+      border-radius: 0.75rem;
+      padding: 0.75rem 2rem;
+      box-shadow: 0 4px 24px 0 rgba(63, 207, 142, 0.15);
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    .btn-primary:hover {
+      background: var(--accent-blue);
+      color: #fff;
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 8px 32px 0 rgba(79, 140, 255, 0.25);
+    }
+    .btn-primary:active {
+      background: var(--secondary-green);
+      color: #fff;
+      transform: scale(0.98);
+    }
+  </style>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 900,
+        once: true,
+        offset: 60
+      });
+    });
+  </script>
+</head>
+<body class="bg-[var(--dark-navy)] text-slate-100 font-sans">
 
   <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-16 shadow-sm bg-slate-50 border-t border-slate-200">
-    <div class="max-w-6xl mx-auto px-6">
-      <!-- Logo -->
-      <a href="https://github.com/bookisonfire/BookMark" target="_blank">
-        <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template%2Fpublic%2FBookMark_cover_photo.png?raw=true"
-             alt="BookMark Logo"
-             class="h-6 md:h-8 mx-auto mb-6 rounded-lg shadow-md object-contain" />
-      </a>
-
-      <!-- Title -->
-      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-        Help Desk Ticketing Made Simple
-      </h1>
-
-      <!-- Tagline -->
-      <p class="text-lg md:text-xl text-gray-600 mb-8">
-        A fast, focused support platform for small to mid-sized teams.
-      </p>
-
-      <!-- CTA -->
-      <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-6xl mx-auto px-6">>
-        <a href="https://github.com/bookisonfire/BookMark" target="_blank"
-           class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl font-semibold transition shadow-md">
-          🚀 View on GitHub
-        </a>
-        <a href="#features"
-           class="border border-blue-600 text-blue-600 hover:bg-blue-50 py-3 px-6 rounded-xl font-semibold transition shadow-md">
-          Explore Features
-        </a>
-      </div>
+  <section class="py-20 px-6 text-center bg-[var(--dark-navy)]" data-aos="fade-up">
+    <div class="flex flex-col items-center justify-center gap-4 mb-8">
+      <img src="rc="https://github.com/bookisonfire/BookMark/blob/main/vite_template%2Fpublic%2FBookMark_cover_photo.png?raw=true" alt="BookMark Logo" class="w-20 h-20 rounded-xl shadow-lg mb-2" />
+      <h1 class="text-5xl md:text-6xl font-extrabold text-[var(--primary-green)] tracking-tight">BookMark</h1>
     </div>
+    <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-slate-300">Streamline your support workflow. A help desk ticket management platform to enhance your support efficiency.</p>
+    <a href="#get-started" class="btn-primary inline-block text-lg shadow-lg">Get Started</a>
   </section>
 
-  <!-- Features Section -->
-  <section id="features" class="py-20 px-6 bg-slate-50 border-t border-slate-200">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Features Built for Busy Teams</h2>
-      <div class="grid gap-8 md:grid-cols-3 text-left max-w-6xl mx-auto px-6">
-        <div class="bg-white rounded-lg shadow-md p-6 max-w-6xl mx-auto px-6">
-          <h3 class="text-xl font-semibold mb-2">📬 Email-to-Ticket</h3>
-          <p class="text-base sm:text-lg text-gray-600">Send an email, and we turn it into a trackable task. No training needed.</p>
+  <!-- Features Grid -->
+  <section class="py-20 px-6 bg-[var(--deep-blue)]" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-10 text-[var(--primary-green)]">Features Built for Busy Teams</h2>
+      <div class="grid gap-10 md:grid-cols-3 text-left">
+        <div class="bg-[var(--dark-navy)] rounded-xl p-6 shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--accent-blue)]">📬 Email-to-Ticket</h3>
+          <p class="text-slate-300">No extra training needed. Just send an email and we turn it into a trackable task.</p>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 max-w-6xl mx-auto px-6">
-          <h3 class="text-xl font-semibold mb-2">👥 Role-Based Access</h3>
-          <p class="text-base sm:text-lg text-gray-600">Admins, managers, and staff get purpose-built dashboards tailored to them.</p>
+        <div class="bg-[var(--dark-navy)] rounded-xl p-6 shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--accent-blue)]">👥 Role-Based Access</h3>
+          <p class="text-slate-300">Admins, managers, and staff each have powerful, tailored dashboards.</p>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 max-w-6xl mx-auto px-6">
-          <h3 class="text-xl font-semibold mb-2">📈 Visual Reports</h3>
-          <p class="text-base sm:text-lg text-gray-600">Track trends, improve support, and plan smarter with built-in reporting.</p>
+        <div class="bg-[var(--dark-navy)] rounded-xl p-6 shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--accent-blue)]">📈 Visual Reports</h3>
+          <p class="text-slate-300">Get weekly/monthly stats on ticket trends. Make decisions with data, not guesses.</p>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 max-w-6xl mx-auto px-6">
-          <h3 class="text-xl font-semibold mb-2">💬 Message Board</h3>
-          <p class="text-base sm:text-lg text-gray-600">Keep internal communication streamlined with private or public threads.</p>
+        <div class="bg-[var(--dark-navy)] rounded-xl p-6 shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--accent-blue)]">💬 Message Board</h3>
+          <p class="text-slate-300">Post public updates or send private messages. Stay connected.</p>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 max-w-6xl mx-auto px-6">
-          <h3 class="text-xl font-semibold mb-2">🧰 Easy Ticket Management</h3>
-          <p class="text-base sm:text-lg text-gray-600">Assign, comment, update — all from one dashboard with drag-and-drop ease.</p>
+        <div class="bg-[var(--dark-navy)] rounded-xl p-6 shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="500">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--accent-blue)]">🧰 Easy Ticket Management</h3>
+          <p class="text-slate-300">Create, assign, and comment on tickets with ease. Everything in one place.</p>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 max-w-6xl mx-auto px-6">
-          <h3 class="text-xl font-semibold mb-2">🎯 Prioritized Dashboards</h3>
-          <p class="text-base sm:text-lg text-gray-600">Every user sees what’s most important to them — clearly and immediately.</p>
+        <div class="bg-[var(--dark-navy)] rounded-xl p-6 shadow-lg hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="600">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--accent-blue)]">🎯 Prioritized Dashboards</h3>
+          <p class="text-slate-300">Everyone sees what matters most to them — prioritized, organized, and easy to act on.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Screenshot Section -->
-  <section class="py-20 px-6 text-center bg-slate-50 border-t border-slate-200">
-    <h2 class="text-3xl font-bold mb-4">📸 A Look Inside</h2>
-    <p class="text-gray-600 mb-8">Peek into the app before installing a thing.</p>
-    <div class="max-w-5xl mx-auto rounded-lg overflow-hidden shadow-lg">
-      <img src="https://github.com/user-attachments/assets/6bf00205-11d2-48e4-8d01-54b299bd4493"
-           alt="App Screenshot"
-           class="w-full max-w-4x1 mx-auto object-contain rounded-x1" />
+  <!-- Screenshot or Demo Section -->
+  <section class="py-16 px-6 text-center bg-[var(--dark-navy)]" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6 text-[var(--primary-green)]">📸 A Look Inside</h2>
+    <p class="mb-8 text-slate-400">See BookMark in action before you install a thing.</p>
+    <div class="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in">
+      <img src="https://github.com/user-attachments/assets/6bf00205-11d2-48e4-8d01-54b299bd4493" alt="App screenshot"
+           class="mx-auto rounded-xl shadow-md border-4 border-[var(--deep-blue)]" />
     </div>
   </section>
 
   <!-- Testimonials -->
-  <section class="py-20 px-6 text-center bg-slate-50 border-t border-slate-200">
-    <h2 class="text-3xl font-bold mb-10">What Early Users Say</h2>
-    <div class="max-w-4xl mx-auto space-y-10">
-      <blockquote class="text-lg italic text-gray-700 bg-white rounded-lg shadow-md p-6">
-        "BookMark cut our ticket turnaround time in half. Email-to-ticket is a game changer."
-        <br><span class="font-semibold mt-2 block">– Sam L., MSP Owner</span>
-      </blockquote>
-      <blockquote class="text-lg italic text-gray-700 bg-white rounded-lg shadow-md p-6">
-        "Clean, fast, and intuitive. My team actually enjoys using it."
-        <br><span class="font-semibold mt-2 block">– Jasmine C., Startup CTO</span>
-      </blockquote>
-      <p class="text-sm text-gray-500 italic">*Testimonials are fictional examples for demo purposes.</p>
+  <section class="py-20 px-6 bg-[var(--deep-blue)]" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-10 text-[var(--primary-green)]">What Early Users Say</h2>
+      <div class="space-y-10">
+        <blockquote class="italic text-slate-200 bg-[var(--dark-navy)] rounded-xl p-6 shadow-md" data-aos="fade-right">"BookMark cut our ticket turnaround time in half. Email-to-ticket is a game changer." <br><span class="font-semibold text-[var(--primary-green)]">– Sam L., MSP Owner</span></blockquote>
+        <blockquote class="italic text-slate-200 bg-[var(--dark-navy)] rounded-xl p-6 shadow-md" data-aos="fade-left">"Clean, fast, and intuitive. My team actually enjoys using it." <br><span class="font-semibold text-[var(--primary-green)]">– Jasmine C., Startup CTO</span></blockquote>
+      </div>
+      <p class="text-sm text-slate-400 italic mt-6">*These testimonials are fictional examples for demonstration purposes.</p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white py-8 text-center text-sm text-gray-500 border-t border-gray-200">
-    <p class="mb-2">
-      Created with 💜 by 
-      <a href="https://linktr.ee/bookisonfire" target="_blank"
-         class="text-blue-600 font-semibold hover:underline">bookisonfire</a>
-    </p>
-    <p>&copy; 2025 BookMark. All rights reserved.</p>
+  <footer class="bg-[var(--dark-navy)] py-8 text-center border-t border-[var(--deep-blue)]">
+    <p class="mb-2 text-slate-400">Created with 💙 by <a href="https://linktr.ee/bookisonfire" class="text-[var(--primary-green)] font-semibold hover:underline">bookisonfire</a></p>
+    <p class="text-sm text-slate-500">&copy; 2025 BookMark. All rights reserved.</p>
   </footer>
 
 </body>
