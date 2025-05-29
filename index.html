@@ -39,6 +39,35 @@
       color: #fff;
       transform: scale(0.98);
     }
+    .hero-bg-fade {
+      position: relative;
+      background-image: url('https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/dashboard.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+    .hero-bg-fade::before,
+    .hero-bg-fade::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-bg-fade::before {
+      top: 0;
+      background: linear-gradient(to bottom, #1a2730 90%, transparent 100%);
+    }
+    .hero-bg-fade::after {
+      bottom: 0;
+      background: linear-gradient(to top, #1a2730 90%, transparent 100%);
+    }
+    .hero-bg-fade > * {
+      position: relative;
+      z-index: 3;
+    }
   </style>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -54,9 +83,9 @@
 <body class="bg-[var(--dark-navy)] text-slate-100 font-sans">
 
   <!-- Hero Section -->
-  <section class="py-20 px-6 text-center bg-[var(--dark-navy)]" data-aos="fade-up">
+  <section class="relative hero-bg-fade py-20 px-6 text-center" data-aos="fade-up">
     <div class="flex flex-col items-center justify-center gap-4 mb-8">
-      <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template%2Fpublic%2FBookMark_cover_photo.png?raw=true" alt="BookMark Logo" class="w-20 h-20 rounded-xl shadow-lg mb-2" />
+      <img src="rc="https://github.com/bookisonfire/BookMark/blob/main/vite_template%2Fpublic%2FBookMark_cover_photo.png?raw=true" alt="BookMark Logo" class="w-20 h-20 rounded-xl shadow-lg mb-2" />
       <h1 class="text-5xl md:text-6xl font-extrabold text-[var(--primary-green)] tracking-tight">BookMark</h1>
     </div>
     <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-slate-300">Streamline your support workflow. A help desk ticket management platform to enhance your support efficiency.</p>
