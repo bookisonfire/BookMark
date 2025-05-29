@@ -39,46 +39,43 @@
       color: #fff;
       transform: scale(0.98);
     }
-    <style>
-  .particle-button {
+    .particle-button {
     position: relative;
     overflow: visible;
-  }
-
-  .particle-button::after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    pointer-events: none;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.2s;
-    background: radial-gradient(circle, var(--primary-green) 10%, transparent 70%);
-    animation: particles 0.6s ease-out forwards;
-  }
-
-  .particle-button:hover::after {
-    width: 80px;
-    height: 80px;
-    opacity: 1;
-  }
-
-  @keyframes particles {
-    0% {
-      transform: translateX(-50%) translateY(0) scale(0.6);
-      opacity: 0.6;
     }
-    100% {
-      transform: translateX(-50%) translateY(-40px) scale(1.2);
+  
+    .particle-button::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      pointer-events: none;
+      z-index: 10;
       opacity: 0;
+      transition: opacity 0.2s;
+      background: radial-gradient(circle, var(--primary-green) 10%, transparent 70%);
     }
-  }
-</style>
-
+  
+    .particle-button:hover::after {
+      width: 80px;
+      height: 80px;
+      opacity: 1;
+      animation: particles 0.6s ease-out forwards;
+    }
+  
+    @keyframes particles {
+      0% {
+        transform: translateX(-50%) translateY(0) scale(0.6);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateX(-50%) translateY(-40px) scale(1.2);
+        opacity: 0;
+      }
+    }
     
   </style>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
