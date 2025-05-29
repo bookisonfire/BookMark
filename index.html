@@ -39,40 +39,27 @@
       color: #fff;
       transform: scale(0.98);
     }
-    .particle-button {
-    position: relative;
-    overflow: visible;
+    .pixel-button {
+      position: relative;
+      overflow: visible;
     }
   
-    .particle-button::after {
-      content: '';
+    .pixel-smoke {
       position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      pointer-events: none;
-      z-index: 10;
-      opacity: 0;
-      transition: opacity 0.2s;
-      background: radial-gradient(circle, var(--primary-green) 10%, transparent 70%);
+      width: 6px;
+      height: 6px;
+      background-color: var(--primary-green);
+      opacity: 0.9;
+      animation: pixelFloat 0.8s ease-out forwards;
     }
   
-    .particle-button:hover::after {
-      width: 80px;
-      height: 80px;
-      opacity: 1;
-      animation: particles 0.6s ease-out forwards;
-    }
-  
-    @keyframes particles {
+    @keyframes pixelFloat {
       0% {
-        transform: translateX(-50%) translateY(0) scale(0.6);
-        opacity: 0.6;
+        transform: translate(0, 0);
+        opacity: 0.9;
       }
       100% {
-        transform: translateX(-50%) translateY(-40px) scale(1.2);
+        transform: translate(var(--x), var(--y));
         opacity: 0;
       }
     }
@@ -105,16 +92,16 @@
     <h1 class="text-5xl md:text-6xl font-extrabold text-[var(--primary-green)] tracking-tight mb-4">BookMark</h1>
     <p class="text-xl md:text-2xl text-slate-300 mb-6">A help desk ticket management platform to streamline your support workflow.</p>
     <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <div class="particle-button">
+      <div class="pixel-button">
         <a href="https://discord.gg/RBGT94hW" class="btn-primary inline-flex items-center gap-2 text-lg shadow-lg">
-          <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/discord_logo.png?raw=true" alt="Discord" class="w-6 h-6" />
+          <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/discord_logo.png?raw=true" class="w-6 h-6" />
           Discord
         </a>
       </div>
-    
-      <div class="particle-button">
-        <a href="https://github.com/bookisonfire/BookMark" class="btn-primary inline-flex items-center gap-2 text-lg shadow-lg">
-          <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/github_logo.png?raw=true" alt="Github" class="w-6 h-6" />
+      
+      <div class="pixel-button">
+        <a href="https://discord.gg/RBGT94hW" class="btn-primary inline-flex items-center gap-2 text-lg shadow-lg">
+          <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/github_logo.png?raw=true" class="w-6 h-6" />
           Github
         </a>
       </div>
@@ -185,5 +172,39 @@
     <p class="mb-2 text-slate-400">Created with 💙 by <a href="https://linktr.ee/bookisonfire" class="text-[var(--primary-green)] font-semibold hover:underline">David B</a></p>
     <p class="text-sm text-slate-500">&copy; 2025 BookMark. All rights reserved.</p>
   </footer>
+<!-- pixels -->
+  <script>
+  document.querySelectorAll('.pixel-button').forEach(button => {
+    let intervalId;
 
+    const spawnParticle = () => {
+      const pixel = document.createElement('div');
+      pixel.classList.add('pixel-smoke');
+
+      pixel.style.left = `${Math.random() * 100}%`;
+      pixel.style.top = `0`;
+
+      const xOffset = (Math.random() - 0.5) * 40;
+      const yOffset = -30 - Math.random() * 20;
+
+      pixel.style.setProperty('--x', `${xOffset}px`);
+      pixel.style.setProperty('--y', `${yOffset}px`);
+
+      button.appendChild(pixel);
+      setTimeout(() => pixel.remove(), 1000);
+    };
+
+    button.addEventListener('mouseenter', () => {
+      intervalId = setInterval(() => {
+        for (let i = 0; i < 3; i++) spawnParticle(); // increase or decrease density
+      }, 100);
+    });
+
+    button.addEventListener('mouseleave', () => {
+      clearInterval(intervalId);
+    });
+  });
+</script>
+
+  
 </body>
