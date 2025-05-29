@@ -18,7 +18,8 @@ BookMark is built to simplify task tracking, team communication, and workflow or
 
 ---
 
-![image](https://github.com/user-attachments/assets/9033059f-231b-4c25-b954-26974919fded) 
+![image](https://github.com/user-attachments/assets/e24ac6b8-c6d8-4e9c-9651-34074775f52b)
+ 
 
 ---
 
@@ -98,7 +99,8 @@ Personalized homepages based on user roles:
 
 ---
 
-![image](https://github.com/user-attachments/assets/6bf00205-11d2-48e4-8d01-54b299bd4493)
+![image](https://github.com/user-attachments/assets/35ae71fe-9fe6-4d6e-9dbe-8d003553af68)
+
 
 ---
 
