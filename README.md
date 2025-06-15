@@ -4,7 +4,7 @@
 ---
 
 *A link to the landing page:*
-https://bookisonfire.github.io/BookMark/
+https://bookisonfire.github.io/bookmark/
 
 ---
 
