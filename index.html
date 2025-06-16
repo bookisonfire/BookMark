@@ -82,6 +82,40 @@
       animation: float-delayed 6s ease-in-out infinite;
       animation-delay: -3s;
     }
+    .animate-float-random1 { animation: float-up 7s ease-in-out infinite; animation-delay: 0s; }
+    .animate-float-random2 { animation: float-down 8s ease-in-out infinite; animation-delay: -2s; }
+    .animate-float-random3 { animation: float-left 9s ease-in-out infinite; animation-delay: -1.5s; }
+    .animate-float-random4 { animation: float-right 7.5s ease-in-out infinite; animation-delay: -3s; }
+    .animate-float-random5 { animation: float-diag1 10s ease-in-out infinite; animation-delay: -4s; }
+    .animate-float-random6 { animation: float-diag2 8.5s ease-in-out infinite; animation-delay: -2.5s; }
+    .animate-float-random7 { animation: float-up 6.5s ease-in-out infinite; animation-delay: -1s; }
+    .animate-float-random8 { animation: float-down 9.5s ease-in-out infinite; animation-delay: -3.5s; }
+    .animate-float-random9 { animation: float-left 7.2s ease-in-out infinite; animation-delay: -2.2s; }
+    .animate-float-random10 { animation: float-diag1 8.8s ease-in-out infinite; animation-delay: -1.8s; }
+    @keyframes float-up {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+    @keyframes float-down {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(30px); }
+    }
+    @keyframes float-left {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-30px); }
+    }
+    @keyframes float-right {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(30px); }
+    }
+    @keyframes float-diag1 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(25px, -25px); }
+    }
+    @keyframes float-diag2 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-25px, 25px); }
+    }
     /* Rotating word animation */
     .rotate-word-out {
       animation: flyUp 0.35s forwards;
@@ -97,6 +131,30 @@
       0% { opacity: 0; transform: translateY(2em) scale(1.3); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
+    .animate-float-up { animation: float-up 7.2s ease-in-out infinite; animation-delay: 0s; }
+    .animate-float-down { animation: float-down 8.1s ease-in-out infinite; animation-delay: -2.1s; }
+    .animate-float-left { animation: float-left 6.7s ease-in-out infinite; animation-delay: -1.3s; }
+    .animate-float-diag { animation: float-diag 9.3s ease-in-out infinite; animation-delay: -3.2s; }
+    @keyframes float-up {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-32px); }
+    }
+    @keyframes float-down {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(32px); }
+    }
+    @keyframes float-left {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-32px); }
+    }
+    @keyframes float-diag {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(24px, -24px); }
+    }
+    a.feature-card, a.feature-card * {
+      text-decoration: none !important;
+      color: inherit !important;
+    }
   </style>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -109,7 +167,7 @@
     });
     // Rotating word animation for hero header
     document.addEventListener('DOMContentLoaded', function() {
-      const words = ["Ticket", "Project", "Goal", "Support", "Team", "Progress", "Life", "Deadline", "Priority", "Workflow", "Fun"]; 
+      const words = ["Ticket", "Project", "Goal", "Support", "Team", "Progress", "Life", "Deadline", "Priority", "Workflow", "Fun"];
       const rotatingWord = document.getElementById('rotating-word');
       let idx = 0;
       let isAnimating = false;
@@ -140,18 +198,19 @@
   <!-- Animated Background -->
   <div class="absolute inset-0 overflow-hidden">
     <!-- Jazz Cup SVG pattern -->
-    <svg class="absolute inset-0 w-[120%] h-full -left-[10%]" viewBox="0 20 500 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <!-- Teal brushstrokes -->
-      <path d="M10 60 Q 60 20, 120 40 T 230 60 T 350 40 T 490 80" stroke="#19c6d1" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
-      <path d="M0 90 Q 80 60, 200 100 T 400 90 T 500 110" stroke="#158eb3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
-      <!-- Purple squiggle -->
-      <path d="M30 80 Q 80 40, 150 70 T 270 60 T 400 100 T 480 60" stroke="#7c2ba0" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
+    <svg class="absolute inset-0 w-[120%] h-full -left-[10%]" viewBox="0 8 500 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <!-- Main teal brushstroke (top) -->
+      <path d="M10 40 Q 60 0, 120 20 T 230 40 T 350 20 T 490 60" stroke="#19c6d1" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
+      <!-- Purple squiggle (middle) -->
+      <path d="M30 70 Q 80 30, 150 60 T 270 50 T 400 90 T 480 50" stroke="#7c2ba0" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" />
+      <!-- Blue brushstroke (bottom) -->
+      <path d="M0 120 Q 80 100, 200 130 T 400 120 T 500 135" stroke="#158eb3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
     </svg>
     <!-- Animated shapes -->
-    <div class="absolute w-8 h-8 border-4 border-[#19c6d1] rounded-full animate-float" style="top: 20%; left: 10%;"></div>
-    <div class="absolute w-6 h-6 border-4 border-[#7c2ba0] animate-float-delayed" style="top: 30%; right: 15%;"></div>
-    <div class="absolute w-10 h-10 border-4 border-[#19c6d1] rotate-45 animate-float" style="bottom: 20%; left: 20%;"></div>
-    <div class="absolute w-4 h-4 border-4 border-[#7c2ba0] rounded-full animate-float-delayed" style="bottom: 30%; right: 25%;"></div>
+    <div class="absolute w-8 h-8 border-4 border-[#19c6d1] rounded-full animate-float-up opacity-70" style="top: 20%; left: 10%;"></div>
+    <div class="absolute w-6 h-6 border-4 border-[#7c2ba0] rounded-full animate-float-left opacity-70" style="top: 30%; right: 15%;"></div>
+    <div class="absolute w-10 h-10 border-4 border-[#19c6d1] rotate-45 rounded-lg animate-float-diag opacity-70" style="bottom: 20%; left: 20%;"></div>
+    <div class="absolute w-4 h-4 border-4 border-[#7c2ba0] rounded-full animate-float-down opacity-70" style="bottom: 30%; right: 25%;"></div>
   </div>
 
   <!-- Content -->
@@ -160,9 +219,11 @@
     <h1
       class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2"
       style="color: #fff; letter-spacing: -1px; text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">
-      A <span class="inline-block relative" style="min-width: 90px;">
+      Your New Favorite <span class="inline-block relative w-[130px] text-left align-baseline">
         <span id="rotating-word" class="text-[var(--primary-green)]" aria-live="polite">Ticket</span>
-      </span> Management Platform
+      </span>
+      <br />
+      Management Platform
     </h1>
     <p
       class="text-lg md:text-xl font-medium mb-4"
@@ -189,46 +250,82 @@
 
 
   <!-- Features Grid -->
-<section class="py-20 px-6 bg-[var(--deep-blue)]" data-aos="fade-up">
-  <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-10 text-[var(--primary-green)]">Features Built for Busy Teams</h2>
-    <div class="grid gap-10 md:grid-cols-3 text-center">
-      <a href="#email-ticket" class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] overflow-hidden hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(63,207,142,0.15),_transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+<section class="py-20 px-6 bg-[var(--deep-blue)] -mx-4 md:-mx-8 lg:-mx-16" data-aos="fade-up">
+  <div class="max-w-4xl mx-auto px-4 md:px-8">
+    <h2 class="text-4xl font-bold mb-10 text-[var(--primary-green)] text-center">Features Built for Busy Teams</h2>
+    <div class="grid gap-10 md:grid-cols-3 justify-center">
+      <div
+        class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
+        tabindex="0"
+        role="button"
+        aria-label="Go to Email-to-Ticket"
+        onclick="document.getElementById('email-ticket').scrollIntoView({behavior: 'smooth'})"
+        onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('email-ticket').scrollIntoView({behavior: 'smooth'})}"
+      >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">📬 Email-to-Ticket</h3>
         <p class="text-slate-400">No extra training needed. Just send an email and we turn it into a trackable task.</p>
-      </a>
-      <a href="#role-access" class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] overflow-hidden hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(63,207,142,0.15),_transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      </div>
+      <div
+        class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
+        tabindex="0"
+        role="button"
+        aria-label="Go to Role-Based Access"
+        onclick="document.getElementById('role-access').scrollIntoView({behavior: 'smooth'})"
+        onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('role-access').scrollIntoView({behavior: 'smooth'})}"
+      >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">👥 Role-Based Access</h3>
         <p class="text-slate-400">Admins, managers, and staff each have powerful, tailored dashboards.</p>
-      </a>
-      <a href="#visual-reports" class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] overflow-hidden hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(63,207,142,0.15),_transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      </div>
+      <div
+        class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
+        tabindex="0"
+        role="button"
+        aria-label="Go to Visual Reports"
+        onclick="document.getElementById('visual-reports').scrollIntoView({behavior: 'smooth'})"
+        onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('visual-reports').scrollIntoView({behavior: 'smooth'})}"
+      >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">📈 Visual Reports</h3>
         <p class="text-slate-400">Get weekly/monthly stats on ticket trends. Make decisions with data, not guesses.</p>
-      </a>
-      <a href="#message-board" class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] overflow-hidden hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(63,207,142,0.15),_transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      </div>
+      <div
+        class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
+        tabindex="0"
+        role="button"
+        aria-label="Go to Message Board"
+        onclick="document.getElementById('message-board').scrollIntoView({behavior: 'smooth'})"
+        onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('message-board').scrollIntoView({behavior: 'smooth'})}"
+      >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">💬 Message Board</h3>
         <p class="text-slate-400">Post public updates or send private messages. Stay connected.</p>
-      </a>
-      <a href="#ticket-management" class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] overflow-hidden hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(63,207,142,0.15),_transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-        <h3 class="text-l font-bold mb-2 text-[var(--accent-blue)]">🧰 Easy Ticket Management</h3>
-        <p class="text-slate-400">Create, assign, and comment on tickets with ease. Everything in one place.</p>
-      </a>
-      <a href="#prioritized-dashboards" class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] overflow-hidden hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(63,207,142,0.15),_transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      </div>
+      <div
+        class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
+        tabindex="0"
+        role="button"
+        aria-label="Go to Easy Ticket Management"
+        onclick="document.getElementById('ticket-management').scrollIntoView({behavior: 'smooth'})"
+        onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('ticket-management').scrollIntoView({behavior: 'smooth'})}"
+      >
+        <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">🧰 Easy Ticket Management</h3>
+        <p class="text-slate-400">Create, assign, and comment on tickets with ease.</p>
+      </div>
+      <div
+        class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
+        tabindex="0"
+        role="button"
+        aria-label="Go to Prioritized Dashboards"
+        onclick="document.getElementById('prioritized-dashboards').scrollIntoView({behavior: 'smooth'})"
+        onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('prioritized-dashboards').scrollIntoView({behavior: 'smooth'})}"
+      >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">🎯 Prioritized Dashboards</h3>
         <p class="text-slate-400">Everyone sees what matters most to them — prioritized, organized, and easy to act on.</p>
-      </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Screenshot or Demo Section -->
-<section class="py-16 px-6 text-center bg-[var(--dark-navy)]" data-aos="fade-up">
+<section class="py-16 px-6 text-center bg-[var(--dark-navy)] -mx-4 md:-mx-8 lg:-mx-16" data-aos="fade-up">
   <h2 class="text-3xl font-bold mb-6 text-[var(--primary-green)]">📸 A Look Inside</h2>
   <p class="mb-8 text-slate-400">See BookMark in action!!</p>
   
@@ -514,7 +611,7 @@
 </section>
 
 <!-- Testimonials -->
-<section class="py-20 px-6 bg-[var(--deep-blue)]" data-aos="fade-up">
+<section class="py-20 px-6 bg-[var(--deep-blue)] -mx-4 md:-mx-8 lg:-mx-16" data-aos="fade-up">
   <div class="max-w-4xl mx-auto text-center">
     <h2 class="text-3xl font-bold mb-10 text-[var(--primary-green)]">What Early Users Say</h2>
     <div class="space-y-10">
