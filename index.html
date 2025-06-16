@@ -82,6 +82,21 @@
       animation: float-delayed 6s ease-in-out infinite;
       animation-delay: -3s;
     }
+    /* Rotating word animation */
+    .rotate-word-out {
+      animation: flyUp 0.35s forwards;
+    }
+    .rotate-word-in {
+      animation: flyIn 0.35s forwards;
+    }
+    @keyframes flyUp {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-2em) scale(0.7); }
+    }
+    @keyframes flyIn {
+      0% { opacity: 0; transform: translateY(2em) scale(1.3); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
   </style>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -92,16 +107,40 @@
         offset: 60
       });
     });
+    // Rotating word animation for hero header
+    document.addEventListener('DOMContentLoaded', function() {
+      const words = ["Ticket", "Project", "Life", "Deadline", "Workflow", "Fun"];
+      const rotatingWord = document.getElementById('rotating-word');
+      let idx = 0;
+      let isAnimating = false;
+      setInterval(() => {
+        if (isAnimating) return;
+        isAnimating = true;
+        // Animate out
+        rotatingWord.classList.remove('rotate-word-in');
+        rotatingWord.classList.add('rotate-word-out');
+        setTimeout(() => {
+          idx = (idx + 1) % words.length;
+          rotatingWord.textContent = words[idx];
+          rotatingWord.classList.remove('rotate-word-out');
+          rotatingWord.classList.add('rotate-word-in');
+          setTimeout(() => {
+            rotatingWord.classList.remove('rotate-word-in');
+            isAnimating = false;
+          }, 350);
+        }, 350);
+      }, 2200);
+    });
   </script>
 </head>
 <body class="bg-[var(--dark-navy)] text-slate-100 font-sans">
 
   <!-- Hero Section -->
-<section class="relative pt-20 pb-16 px-6 text-center bg-[var(--deep-blue)] -mx-4 md:-mx-8 lg:-mx-16">
+<section class="relative pt-32 pb-24 px-6 text-center bg-[var(--deep-blue)] -mx-4 md:-mx-8 lg:-mx-16">
   <!-- Animated Background -->
   <div class="absolute inset-0 overflow-hidden">
     <!-- Jazz Cup SVG pattern -->
-    <svg class="absolute inset-0 w-[120%] h-full -left-[10%]" viewBox="0 15 500 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <svg class="absolute inset-0 w-[120%] h-full -left-[10%]" viewBox="0 20 500 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
       <!-- Teal brushstrokes -->
       <path d="M10 60 Q 60 20, 120 40 T 230 60 T 350 40 T 490 80" stroke="#19c6d1" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
       <path d="M0 90 Q 80 60, 200 100 T 400 90 T 500 110" stroke="#158eb3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
@@ -121,7 +160,9 @@
     <h1
       class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2"
       style="color: #fff; letter-spacing: -1px; text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">
-      A Ticket Management Platform
+      A <span class="inline-block relative" style="min-width: 90px;">
+        <span id="rotating-word" class="text-[var(--primary-green)]" aria-live="polite">ticket</span>
+      </span> Management Platform
     </h1>
     <p
       class="text-lg md:text-xl font-medium mb-4"
@@ -194,214 +235,278 @@
   <div class="max-w-4xl mx-auto space-y-32">
     <!-- Email-to-Ticket -->
     <div id="email-ticket" class="scroll-mt-32" data-aos="fade-right" data-aos-duration="1000">
-      <div class="bg-[var(--deep-blue)] rounded-2xl p-8 border border-[var(--primary-green)]">
-        <h3 class="text-3xl font-bold mb-6 text-[var(--primary-green)]">📬 Email-to-Ticket</h3>
-        <div class="space-y-6 text-slate-300">
-          <p>Transform your email workflow into a powerful ticketing system without changing how you work.</p>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Automatic ticket creation from any email address</span>
+      <div class="bg-[var(--deep-blue)] rounded-2xl border border-[var(--primary-green)] overflow-hidden flex flex-col md:flex-row">
+        <!-- GIF/Image -->
+        <div class="md:w-1/2 w-full flex items-center justify-center">
+          <div class="relative w-full aspect-[16/8] min-h-[180px] md:min-h-[360px] p-4 md:p-6">
+            <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/email_ticket.png?raw=true" 
+                 alt="Email-to-Ticket screenshot"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'" />
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/ticket_details.gif?raw=true" 
+                 alt="Email-to-Ticket demo"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'"
+                 loading="lazy" />
+          </div>
+        </div>
+        <!-- Text Content -->
+        <div class="md:w-1/2 w-full p-6 flex flex-col justify-center space-y-6 text-slate-300 text-left text-base md:text-lg">
+          <h3 class="text-3xl font-bold mb-2 text-[var(--primary-green)] flex items-center gap-2">
+            <span>📬</span> Email-to-Ticket
+          </h3>
+          <p>
+            <span class="font-bold text-[var(--primary-green)]">Let's be blunt:</span> Are you tired of training your team (again and again) on how to submit tickets? Dreading the hassle of installing yet another app on every workstation? <span class="font-bold text-white">BookMark</span> is your answer.
+          </p>
+          <p>
+            <span class="font-semibold text-white">No more complicated onboarding.</span> With BookMark, you can turn any email into a trackable ticket instantly. Just set up our <span class="font-semibold text-[var(--primary-green)]">Email Listener</span> in your settings. It will automatically scan the inbox of your chosen email address and convert every unread message into a ticket, ready for your team to triage and resolve.
+          </p>
+          <div class="bg-[var(--dark-navy)] border-l-4 border-[var(--primary-green)] px-4 py-3 rounded mb-2">
+            <span class="font-bold text-[var(--primary-green)]">Pro Tip:</span> Use a dedicated email address for your tickets. Otherwise, you might accidentally flood your system with thousands of old emails!
+          </div>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>
+              <span class="font-semibold text-white">Perfect for small businesses</span> still using email or spreadsheets to track support requests.
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Smart categorization and priority assignment</span>
+            <li>
+              <span class="font-semibold text-white">Ideal for busy teams</span> who don't have time for complex tools or endless training.
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Seamless two-way communication with customers</span>
+            <li>
+              <span class="font-semibold text-white">A lifesaver for HR or non-technical departments</span> who just want to send an email and get help. No logins, no learning curve.
+            </li>
+            <li>
+              <span class="font-semibold text-white">Seamless for everyone in between.</span>
             </li>
           </ul>
-          <div class="mt-8 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
-            <div class="relative w-full aspect-[16/7] min-h-[220px] md:min-h-[320px]">
-              <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
-              <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/email_ticket.png?raw=true" 
-                   alt="Email-to-Ticket screenshot"
-                   class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
-                   onload="this.style.opacity='1'" />
-              <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/ticket_details.gif?raw=true" 
-                   alt="Email-to-Ticket demo"
-                   class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
-                   onload="this.style.opacity='1'"
-                   loading="lazy" />
-            </div>
-          </div>
+          <p>
+            <span class="font-semibold text-[var(--primary-green)]">BookMark's Email-to-Ticket</span> is the fastest way to bring order to your support chaos. No more lost requests, no more confusion. Just send, track, and resolve.
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Role-Based Access -->
     <div id="role-access" class="scroll-mt-32" data-aos="fade-left" data-aos-duration="1000">
-      <div class="bg-[var(--deep-blue)] rounded-2xl p-8 border border-[var(--primary-green)]">
-        <h3 class="text-3xl font-bold mb-6 text-[var(--primary-green)]">👥 Role-Based Access</h3>
-        <div class="space-y-6 text-slate-300">
-          <p>Customize the experience for every team member with powerful role-based permissions.</p>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Predefined roles for admins, managers, and staff</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Custom role creation with granular permissions</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Secure access control for sensitive information</span>
-            </li>
+      <div class="bg-[var(--deep-blue)] rounded-2xl border border-[var(--primary-green)] overflow-hidden flex flex-col md:flex-row-reverse">
+        <!-- GIF/Image -->
+        <div class="md:w-1/2 w-full flex items-center justify-center">
+          <div class="relative w-full aspect-[16/8] min-h-[180px] md:min-h-[360px] p-4 md:p-6">
+            <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/role_access.png?raw=true" 
+                 alt="Role-Based Access screenshot"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'" />
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/role_access.gif?raw=true" 
+                 alt="Role-Based Access demo"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'"
+                 loading="lazy" />
+          </div>
+        </div>
+        <!-- Text Content -->
+        <div class="md:w-1/2 w-full p-6 flex flex-col justify-center space-y-6 text-slate-300 text-left text-base md:text-lg">
+          <h3 class="text-3xl font-bold mb-2 text-[var(--primary-green)] flex items-center gap-2">
+            <span>👥</span> Role-Based Access
+          </h3>
+          <p>
+            <span class="font-bold text-[var(--primary-green)]">One size does NOT fit all.</span> Your admin, your manager, and your staff all need different things. Why force them into the same dashboard?
+          </p>
+          <p>
+            <span class="font-semibold text-white">BookMark's Role-Based Access</span> gives every team member a tailored experience. Admins see everything. Managers get the big picture. Staff see only what matters to them.
+          </p>
+          <div class="bg-[var(--dark-navy)] border-l-4 border-[var(--primary-green)] px-4 py-3 rounded mb-2">
+            <span class="font-bold text-[var(--primary-green)]">Security built-in:</span> Only the right people see the right data. No more accidental oversharing.
+          </div>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><span class="font-semibold text-white">Predefined roles</span> for instant setup.</li>
+            <li><span class="font-semibold text-white">Custom roles</span> for unique workflows.</li>
+            <li><span class="font-semibold text-white">Granular permissions</span> for total control.</li>
+            <li><span class="font-semibold text-white">Easy onboarding for new hires.</span> Just assign a role and go.</li>
           </ul>
+          <p>
+            <span class="font-semibold text-[var(--primary-green)]">BookMark adapts to your team, not the other way around.</span>
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Visual Reports -->
     <div id="visual-reports" class="scroll-mt-32" data-aos="fade-right" data-aos-duration="1000">
-      <div class="bg-[var(--deep-blue)] rounded-2xl p-8 border border-[var(--primary-green)]">
-        <h3 class="text-3xl font-bold mb-6 text-[var(--primary-green)]">📈 Visual Reports</h3>
-        <div class="space-y-6 text-slate-300">
-          <p>Make data-driven decisions with beautiful, interactive reports and analytics.</p>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Real-time performance metrics and KPIs</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Customizable dashboards and reports</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Export capabilities for external analysis</span>
-            </li>
-          </ul>
-          <div class="mt-8 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
-            <div class="relative w-full aspect-[16/7] min-h-[220px] md:min-h-[320px]">
-              <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
-              <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/visual_reports.png?raw=true" 
-                   alt="Visual Reports screenshot"
-                   class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
-                   onload="this.style.opacity='1'" />
-              <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/reports.gif?raw=true" 
-                   alt="Visual Reports demo"
-                   class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
-                   onload="this.style.opacity='1'"
-                   loading="lazy" />
-            </div>
+      <div class="bg-[var(--deep-blue)] rounded-2xl border border-[var(--primary-green)] overflow-hidden flex flex-col md:flex-row">
+        <!-- GIF/Image -->
+        <div class="md:w-1/2 w-full flex items-center justify-center">
+          <div class="relative w-full aspect-[16/8] min-h-[180px] md:min-h-[360px] p-4 md:p-6">
+            <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/visual_reports.png?raw=true" 
+                 alt="Visual Reports screenshot"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'" />
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/reports.gif?raw=true" 
+                 alt="Visual Reports demo"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'"
+                 loading="lazy" />
           </div>
+        </div>
+        <!-- Text Content -->
+        <div class="md:w-1/2 w-full p-6 flex flex-col justify-center space-y-6 text-slate-300 text-left text-base md:text-lg">
+          <h3 class="text-3xl font-bold mb-2 text-[var(--primary-green)] flex items-center gap-2">
+            <span>📈</span> Visual Reports
+          </h3>
+          <p>
+            <span class="font-bold text-[var(--primary-green)]">Stop guessing. Start knowing.</span> With BookMark's Visual Reports, you get instant clarity on your support operations.
+          </p>
+          <p>
+            <span class="font-semibold text-white">No more spreadsheets, no more manual counting.</span> See trends, spot bottlenecks, and make decisions with confidence.
+          </p>
+          <div class="bg-[var(--dark-navy)] border-l-4 border-[var(--primary-green)] px-4 py-3 rounded mb-2">
+            <span class="font-bold text-[var(--primary-green)]">Data, not drama:</span> Weekly and monthly stats, beautiful charts, and exportable reports at your fingertips.
+          </div>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><span class="font-semibold text-white">Real-time metrics</span> for up-to-the-minute insights.</li>
+            <li><span class="font-semibold text-white">Custom dashboards</span> for every role.</li>
+            <li><span class="font-semibold text-white">Export to CSV or PDF</span> for sharing and analysis.</li>
+            <li><span class="font-semibold text-white">Visualize trends</span> and make smarter decisions, faster.</li>
+          </ul>
+          <p>
+            <span class="font-semibold text-[var(--primary-green)]">BookMark turns your data into action.</span>
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Message Board -->
     <div id="message-board" class="scroll-mt-32" data-aos="fade-left" data-aos-duration="1000">
-      <div class="bg-[var(--deep-blue)] rounded-2xl p-8 border border-[var(--primary-green)]">
-        <h3 class="text-3xl font-bold mb-6 text-[var(--primary-green)]">💬 Message Board</h3>
-        <div class="space-y-6 text-slate-300">
-          <p>Keep your team connected and informed with our powerful communication tools.</p>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Public announcements and team updates</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Private messaging between team members</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Threaded discussions and file sharing</span>
-            </li>
-          </ul>
-          <div class="mt-8 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
-            <div class="relative w-full aspect-[16/7] min-h-[220px] md:min-h-[320px]">
-              <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
-              <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/message_board.png?raw=true" 
-                   alt="Message Board screenshot"
-                   class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
-                   onload="this.style.opacity='1'" />
-              <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/messages.gif?raw=true" 
-                   alt="Message Board demo"
-                   class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
-                   onload="this.style.opacity='1'"
-                   loading="lazy" />
-            </div>
+      <div class="bg-[var(--deep-blue)] rounded-2xl border border-[var(--primary-green)] overflow-hidden flex flex-col md:flex-row-reverse">
+        <!-- GIF/Image -->
+        <div class="md:w-1/2 w-full flex items-center justify-center">
+          <div class="relative w-full aspect-[16/8] min-h-[180px] md:min-h-[360px] p-4 md:p-6">
+            <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/message_board.png?raw=true" 
+                 alt="Message Board screenshot"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'" />
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/messages.gif?raw=true" 
+                 alt="Message Board demo"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'"
+                 loading="lazy" />
           </div>
+        </div>
+        <!-- Text Content -->
+        <div class="md:w-1/2 w-full p-6 flex flex-col justify-center space-y-6 text-slate-300 text-left text-base md:text-lg">
+          <h3 class="text-3xl font-bold mb-2 text-[var(--primary-green)] flex items-center gap-2">
+            <span>💬</span> Message Board
+          </h3>
+          <p>
+            <span class="font-bold text-[var(--primary-green)]">Stay connected. Stay informed.</span> BookMark's Message Board is your team's digital water cooler and command center.
+          </p>
+          <p>
+            <span class="font-semibold text-white">Post updates, share wins, or send private notes.</span> Whether it's a company-wide announcement or a quick DM, it's all in one place.
+          </p>
+          <div class="bg-[var(--dark-navy)] border-l-4 border-[var(--primary-green)] px-4 py-3 rounded mb-2">
+            <span class="font-bold text-[var(--primary-green)]">No more lost emails:</span> Every message is organized, searchable, and secure.
+          </div>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><span class="font-semibold text-white">Public announcements</span> for the whole team.</li>
+            <li><span class="font-semibold text-white">Private messages</span> for sensitive conversations.</li>
+            <li><span class="font-semibold text-white">Threaded discussions</span> for clarity and context.</li>
+            <li><span class="font-semibold text-white">File sharing</span> for docs, images, and more.</li>
+          </ul>
+          <p>
+            <span class="font-semibold text-[var(--primary-green)]">BookMark keeps your team in sync. No matter where you are.</span>
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Ticket Management -->
     <div id="ticket-management" class="scroll-mt-32" data-aos="fade-right" data-aos-duration="1000">
-      <div class="bg-[var(--deep-blue)] rounded-2xl p-8 border border-[var(--primary-green)]">
-        <h3 class="text-3xl font-bold mb-6 text-[var(--primary-green)]">🧰 Easy Ticket Management</h3>
-        <div class="space-y-6 text-slate-300">
-          <p>Streamline your support process with our intuitive ticket management system.</p>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Quick ticket creation and assignment</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Rich text editor for detailed responses</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>File attachments and image support</span>
-            </li>
-          </ul>
-          <div class="mt-8 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
-            <div class="relative w-full aspect-[16/7] min-h-[220px] md:min-h-[320px]">
-              <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
-              <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/ticket_management.png?raw=true" 
-                   alt="Ticket Management screenshot"
-                   class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
-                   onload="this.style.opacity='1'" />
-              <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/create_ticket.gif?raw=true" 
-                   alt="Ticket Management demo"
-                   class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
-                   onload="this.style.opacity='1'"
-                   loading="lazy" />
-            </div>
+      <div class="bg-[var(--deep-blue)] rounded-2xl border border-[var(--primary-green)] overflow-hidden flex flex-col md:flex-row">
+        <!-- GIF/Image -->
+        <div class="md:w-1/2 w-full flex items-center justify-center">
+          <div class="relative w-full aspect-[16/8] min-h-[180px] md:min-h-[360px] p-4 md:p-6">
+            <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/ticket_management.png?raw=true" 
+                 alt="Ticket Management screenshot"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'" />
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/create_ticket.gif?raw=true" 
+                 alt="Ticket Management demo"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'"
+                 loading="lazy" />
           </div>
+        </div>
+        <!-- Text Content -->
+        <div class="md:w-1/2 w-full p-6 flex flex-col justify-center space-y-6 text-slate-300 text-left text-base md:text-lg">
+          <h3 class="text-3xl font-bold mb-2 text-[var(--primary-green)] flex items-center gap-2">
+            <span>🧰</span> Easy Ticket Management
+          </h3>
+          <p>
+            <span class="font-bold text-[var(--primary-green)]">Ticketing shouldn't be a chore.</span> BookMark makes it effortless to create, assign, and resolve tickets so you can focus on what matters.
+          </p>
+          <p>
+            <span class="font-semibold text-white">From the first click to the final resolution,</span> every step is streamlined and intuitive.
+          </p>
+          <div class="bg-[var(--dark-navy)] border-l-4 border-[var(--primary-green)] px-4 py-3 rounded mb-2">
+            <span class="font-bold text-[var(--primary-green)]">No more chaos:</span> Every ticket is tracked, every comment is saved, and nothing slips through the cracks.
+          </div>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><span class="font-semibold text-white">Quick ticket creation</span> from any device.</li>
+            <li><span class="font-semibold text-white">Assign to the right person</span> in seconds.</li>
+            <li><span class="font-semibold text-white">Rich text comments</span> and attachments for full context.</li>
+            <li><span class="font-semibold text-white">Status tracking</span> so everyone knows what's next.</li>
+          </ul>
+          <p>
+            <span class="font-semibold text-[var(--primary-green)]">BookMark makes support simple, for everyone.</span>
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Prioritized Dashboards -->
     <div id="prioritized-dashboards" class="scroll-mt-32" data-aos="fade-left" data-aos-duration="1000">
-      <div class="bg-[var(--deep-blue)] rounded-2xl p-8 border border-[var(--primary-green)]">
-        <h3 class="text-3xl font-bold mb-6 text-[var(--primary-green)]">🎯 Prioritized Dashboards</h3>
-        <div class="space-y-6 text-slate-300">
-          <p>Focus on what matters most with intelligent ticket prioritization and organization.</p>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Smart ticket prioritization algorithms</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Customizable dashboard layouts</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[var(--primary-green)]">✓</span>
-              <span>Real-time updates and notifications</span>
-            </li>
-          </ul>
-          <div class="mt-8 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
-            <div class="relative w-full aspect-[16/7] min-h-[220px] md:min-h-[320px]">
-              <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
-              <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/dashboard.png?raw=true" 
-                   alt="App screenshot"
-                   class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
-                   onload="this.style.opacity='1'" />
-              <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/dashboard.gif?raw=true" 
-                   alt="App demo"
-                   class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
-                   onload="this.style.opacity='1'"
-                   loading="lazy" />
-            </div>
+      <div class="bg-[var(--deep-blue)] rounded-2xl border border-[var(--primary-green)] overflow-hidden flex flex-col md:flex-row-reverse">
+        <!-- GIF/Image -->
+        <div class="md:w-1/2 w-full flex items-center justify-center">
+          <div class="relative w-full aspect-[16/8] min-h-[180px] md:min-h-[360px] p-4 md:p-6">
+            <div class="absolute inset-0 bg-[var(--deep-blue)] animate-pulse rounded-xl"></div>
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/dashboard.png?raw=true" 
+                 alt="App screenshot"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'" />
+            <img src="https://github.com/bookisonfire/BookMark/blob/main/videos/gifs/dashboard.gif?raw=true" 
+                 alt="App demo"
+                 class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-300"
+                 onload="this.style.opacity='1'"
+                 loading="lazy" />
           </div>
+        </div>
+        <!-- Text Content -->
+        <div class="md:w-1/2 w-full p-6 flex flex-col justify-center space-y-6 text-slate-300 text-left text-base md:text-lg">
+          <h3 class="text-3xl font-bold mb-2 text-[var(--primary-green)] flex items-center gap-2">
+            <span>🎯</span> Prioritized Dashboards
+          </h3>
+          <p>
+            <span class="font-bold text-[var(--primary-green)]">See what matters. Act fast.</span> BookMark's dashboards put your most important tickets and stats front and center. No digging, no distractions.
+          </p>
+          <p>
+            <span class="font-semibold text-white">Every user gets a personalized view,</span> so you always know what needs your attention.
+          </p>
+          <div class="bg-[var(--dark-navy)] border-l-4 border-[var(--primary-green)] px-4 py-3 rounded mb-2">
+            <span class="font-bold text-[var(--primary-green)]">Stay ahead:</span> Real-time updates, smart prioritization, and instant notifications.
+          </div>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><span class="font-semibold text-white">Smart algorithms</span> highlight urgent tickets.</li>
+            <li><span class="font-semibold text-white">Customizable layouts</span> for every workflow.</li>
+            <li><span class="font-semibold text-white">Live notifications</span> so you never miss a beat.</li>
+            <li><span class="font-semibold text-white">Easy navigation</span> to drill down or zoom out.</li>
+          </ul>
+          <p>
+            <span class="font-semibold text-[var(--primary-green)]">BookMark keeps your team focused and productive.</span>
+          </p>
         </div>
       </div>
     </div>
@@ -413,7 +518,7 @@
   <div class="max-w-4xl mx-auto text-center">
     <h2 class="text-3xl font-bold mb-10 text-[var(--primary-green)]">What Early Users Say</h2>
     <div class="space-y-10">
-      <blockquote class="italic text-slate-200 bg-[var(--dark-navy)] rounded-xl p-6 shadow-md" data-aos="fade-right">"BookMark cut our ticket turnaround time in half. Email-to-ticket is a game changer." <br><span class="font-semibold text-[var(--primary-green)]">– Sam L., MSP Owner</span></blockquote>
+      <blockquote class="italic text-slate-200 bg-[var(--dark-navy)] rounded-xl p-6 shadow-md" data-aos="fade-right">"BookMark cut our ticket turnaround time in half. The email listener is a game changer." <br><span class="font-semibold text-[var(--primary-green)]">– Sam L., MSP Owner</span></blockquote>
       <blockquote class="italic text-slate-200 bg-[var(--dark-navy)] rounded-xl p-6 shadow-md" data-aos="fade-left">"Clean, fast, and intuitive. My team actually enjoys using it." <br><span class="font-semibold text-[var(--primary-green)]">– Jasmine C., Startup CTO</span></blockquote>
     </div>
     <p class="text-sm text-slate-400 italic mt-6">*These testimonials are fictional examples for demonstration purposes.</p>
@@ -426,38 +531,65 @@
   <p class="mb-2 text-slate-400">Created with 💙 by <a href="https://linktr.ee/bookisonfire" class="text-[var(--primary-green)] font-semibold hover:underline">David B</a></p>
   <p class="text-sm text-slate-500">&copy; 2025 BookMark. All rights reserved.</p>
 </footer>
-<!-- pixels -->
+
+<!-- Back to Top Button -->
+<button id="back-to-top" aria-label="Back to top" tabindex="0"
+  class="hidden fixed bottom-6 right-6 z-50 bg-[var(--primary-green)] text-white rounded-full shadow-lg w-14 h-14 flex items-center justify-center transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[var(--accent-blue)]"
+  style="box-shadow: 0 4px 24px 0 rgba(63, 207, 142, 0.25);">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+  </svg>
+</button>
+
 <script>
-document.querySelectorAll('.pixel-button').forEach(button => {
-  let intervalId;
+  // pixels
+  document.querySelectorAll('.pixel-button').forEach(button => {
+    let intervalId;
 
-  const spawnParticle = () => {
-    const pixel = document.createElement('div');
-    pixel.classList.add('pixel-smoke');
+    const spawnParticle = () => {
+      const pixel = document.createElement('div');
+      pixel.classList.add('pixel-smoke');
 
-    pixel.style.left = `${Math.random() * 100}%`;
-    pixel.style.top = `0`;
+      pixel.style.left = `${Math.random() * 100}%`;
+      pixel.style.top = `0`;
 
-    const xOffset = (Math.random() - 0.5) * 40;
-    const yOffset = -30 - Math.random() * 20;
+      const xOffset = (Math.random() - 0.5) * 40;
+      const yOffset = -30 - Math.random() * 20;
 
-    pixel.style.setProperty('--x', `${xOffset}px`);
-    pixel.style.setProperty('--y', `${yOffset}px`);
+      pixel.style.setProperty('--x', `${xOffset}px`);
+      pixel.style.setProperty('--y', `${yOffset}px`);
 
-    button.appendChild(pixel);
-    setTimeout(() => pixel.remove(), 1000);
+      button.appendChild(pixel);
+      setTimeout(() => pixel.remove(), 1000);
+    };
+
+    button.addEventListener('mouseenter', () => {
+      intervalId = setInterval(() => {
+        for (let i = 0; i < 3; i++) spawnParticle(); // increase or decrease density
+      }, 100);
+    });
+
+    button.addEventListener('mouseleave', () => {
+      clearInterval(intervalId);
+    });
+  });
+
+  // Back to Top Button logic
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.remove('hidden');
+    } else {
+      backToTopBtn.classList.add('hidden');
+    }
+  });
+  const handleBackToTop = (e) => {
+    if (e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
-
-  button.addEventListener('mouseenter', () => {
-    intervalId = setInterval(() => {
-      for (let i = 0; i < 3; i++) spawnParticle(); // increase or decrease density
-    }, 100);
-  });
-
-  button.addEventListener('mouseleave', () => {
-    clearInterval(intervalId);
-  });
-});
+  backToTopBtn.addEventListener('click', handleBackToTop);
+  backToTopBtn.addEventListener('keydown', handleBackToTop);
 </script>
 
 <style>
@@ -467,5 +599,3 @@ document.querySelectorAll('.pixel-button').forEach(button => {
 </style>
   
 </body>
-
-  
