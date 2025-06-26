@@ -191,14 +191,14 @@
     });
   </script>
 </head>
-<body class="bg-[var(--dark-navy)] text-slate-100 font-sans">
+<body class="bg-[var(--dark-navy)] text-slate-100 font-sans min-h-screen w-full overflow-x-hidden">
 
   <!-- Hero Section -->
-<section class="relative pt-32 pb-24 px-6 text-center bg-[var(--deep-blue)] max-w-4xl mx-auto px-4">
+<section class="relative pt-32 pb-24 px-4 sm:px-6 text-center bg-[var(--deep-blue)] w-full min-w-0 min-h-[60vh] max-w-none mx-0">
   <!-- Animated Background -->
-  <div class="absolute inset-0 overflow-hidden">
+  <div class="absolute inset-0 overflow-hidden w-full h-full">
     <!-- Jazz Cup SVG pattern -->
-    <svg class="absolute inset-0 w-[120%] h-full -left-[10%]" viewBox="0 8 500 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <svg class="absolute inset-0 w-full h-full left-0" viewBox="0 8 500 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
       <!-- Main teal brushstroke (top) -->
       <path d="M10 40 Q 60 0, 120 20 T 230 40 T 350 20 T 490 60" stroke="#19c6d1" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
       <!-- Purple squiggle (middle) -->
@@ -219,36 +219,27 @@
     <h1
       class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-2"
       style="color: #fff; letter-spacing: -1px; text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">
-      The Last Ticketing Tool<br />You'll Ever Need for<br /><span class="display: inline-block; relative; overflow-hidden; align-top" style="maxHeight: 2rem; maxWidth:300px;" id="rotating-wrapper">
-    <span id="rotating-word" class="text-[var(--primary-green)]"style="position: absolute; left: 50%; right: 0; top: 0; transform: translateX(-50%); width: 100%; white-space: nowrap;">Small Teams</span>
-  </span>
+      The Last Ticketing Tool<br />You'll Ever Need for
     </h1>
+    <div class="w-full flex justify-center items-center mb-6" style="min-height:3.5rem;">
+      <span class="inline-flex justify-center items-center relative overflow-hidden align-top" style="max-height: 3.5rem; max-width:500px; width:100%;" id="rotating-wrapper">
+        <span id="rotating-word" class="text-[var(--primary-green)] text-3xl md:text-4xl font-extrabold" style="white-space: nowrap; text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">Small Teams</span>
+      </span>
+    </div>
     <p
-      class="text-lg md:text-xl font-medium mb-4"
+      class="text-lg md:text-xl font-medium mb-4 mt-8"
       style="color: #e0eaff; text-shadow: 1px 1px 6px #09253c;">
       BookMark turns your inbox into a full-featured ticket system. No training. No login headaches. No clutter.
     </p>
     <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <div class="pixel-button">
-        <a href="https://discord.gg/TCm5PDCR" class="btn-primary inline-flex items-center gap-2 text-base shadow-lg">
-          <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/discord_logo.png?raw=true" class="w-5 h-5" />
-          Discord
-        </a>
-      </div>
       
-      <div class="pixel-button">
-        <a href="https://discord.gg/RBGT94hW" class="btn-primary inline-flex items-center gap-2 text-base shadow-lg">
-          <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/github_logo.png?raw=true" class="w-5 h-5" />
-          Github
-        </a>
-      </div>
     </div>
   </div>
 </section>
 
 
   <!-- Features Grid -->
-<section class="py-20 px-6 bg-[var(--deep-blue)] -mx-4 md:-mx-8 lg:-mx-16" data-aos="fade-up">
+<section class="py-20 px-4 sm:px-6 bg-[var(--deep-blue)] w-full min-w-0 max-w-none -mx-0" data-aos="fade-up">
   <div class="max-w-4xl mx-auto px-4 md:px-8">
     <h2 class="text-4xl font-bold mb-10 text-[var(--primary-green)] text-center">Features Built for Busy Teams</h2>
     <div class="grid gap-10 md:grid-cols-3 justify-center">
@@ -323,7 +314,7 @@
 </section>
 
 <!-- Screenshot or Demo Section -->
-<section class="py-16 px-6 text-center bg-[var(--dark-navy)] -mx-4 md:-mx-8 lg:-mx-16" data-aos="fade-up">
+<section class="py-16 px-4 sm:px-6 text-center bg-[var(--dark-navy)] w-full min-w-0 max-w-none -mx-0" data-aos="fade-up">
   <h2 class="text-3xl font-bold mb-6 text-[var(--primary-green)]">📸 A Look Inside</h2>
   <p class="mb-8 text-slate-400">See BookMark in action!!</p>
   
@@ -609,20 +600,39 @@
 </section>
 
 <!-- Testimonials -->
-<section class="py-20 px-6 bg-[var(--deep-blue)] -mx-4 md:-mx-8 lg:-mx-16" data-aos="fade-up">
+<section class="py-20 px-4 sm:px-6 bg-[var(--deep-blue)] w-full min-w-0 max-w-none -mx-0" data-aos="fade-up">
   <div class="max-w-4xl mx-auto text-center">
     <h2 class="text-3xl font-bold mb-10 text-[var(--primary-green)]">What Early Users Say</h2>
     <div class="space-y-10">
       <blockquote class="italic text-slate-200 bg-[var(--dark-navy)] rounded-xl p-6 shadow-md" data-aos="fade-right">"BookMark cut our ticket turnaround time in half. The email listener is a game changer." <br><span class="font-semibold text-[var(--primary-green)]">– Sam L., MSP Owner</span></blockquote>
       <blockquote class="italic text-slate-200 bg-[var(--dark-navy)] rounded-xl p-6 shadow-md" data-aos="fade-left">"Clean, fast, and intuitive. My team actually enjoys using it." <br><span class="font-semibold text-[var(--primary-green)]">– Jasmine C., Startup CTO</span></blockquote>
     </div>
-    <p class="text-sm text-slate-400 italic mt-6">*These testimonials are fictional examples for demonstration purposes.</p>
-    <p class="text-sm text-slate-400 italic mt-6">*If you would like to reach out for any reason at all, click <a href="https://linktr.ee/bookisonfire" class="text-[var(--primary-green)] font-semibold hover:underline">here</a></p>
+    <p class="text-base text-white mt-6">*If you would like to reach out for any reason at all, see below</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+      <div class="pixel-button">
+        <a href="https://discord.gg/TCm5PDCR" class="btn-primary inline-flex items-center gap-2 text-base shadow-lg" aria-label="Discord">
+          <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/discord_logo.png?raw=true" class="w-5 h-5" alt="Discord logo" />
+          Discord
+        </a>
+      </div>
+      <div class="pixel-button">
+        <a href="https://discord.gg/RBGT94hW" class="btn-primary inline-flex items-center gap-2 text-base shadow-lg" aria-label="Github">
+          <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/github_logo.png?raw=true" class="w-5 h-5" alt="Github logo" />
+          Github
+        </a>
+      </div>
+      <div class="pixel-button">
+        <a href="https://linktr.ee/bookisonfire" class="btn-primary inline-flex items-center gap-2 text-base shadow-lg" aria-label="Linktree">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linktree.svg" class="w-5 h-5" alt="Linktree logo" />
+          Linktree
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-[var(--dark-navy)] py-8 text-center border-t border-[var(--deep-blue)]">
+<footer class="bg-[var(--dark-navy)] py-8 text-center border-t border-[var(--deep-blue)] w-full min-w-0 max-w-none">
   <p class="mb-2 text-slate-400">Created with 💙 by <a href="https://linktr.ee/bookisonfire" class="text-[var(--primary-green)] font-semibold hover:underline">David B</a></p>
   <p class="text-sm text-slate-500">&copy; 2025 BookMark. All rights reserved.</p>
 </footer>
