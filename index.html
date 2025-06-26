@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-[var(--deep-blue)]">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,7 +16,7 @@
       --secondary-green: #339d6a;
     }
     body {
-      background: var(--dark-navy);
+      background: var(--deep-blue);
       color: #f8fafc;
     }
     .btn-primary {
@@ -191,55 +191,101 @@
     });
   </script>
 </head>
-<body class="bg-[var(--dark-navy)] text-slate-100 font-sans min-h-screen w-full overflow-x-hidden">
+<body class="bg-[var(--deep-blue)] text-slate-100 font-sans min-h-screen w-full overflow-x-hidden">
 
-  <!-- Hero Section -->
-<section class="relative pt-32 pb-24 px-4 sm:px-6 text-center bg-[var(--deep-blue)] w-full min-w-0 min-h-[60vh] max-w-none mx-0">
-  <!-- Animated Background -->
-  <div class="absolute inset-0 overflow-hidden w-full h-full">
-    <!-- Jazz Cup SVG pattern -->
+<!-- Hero Section -->
+<section class="relative pb-12 px-4 sm:px-6 bg-[var(--deep-blue)] w-full min-w-0 min-h-[60vh] max-w-none mx-0">
+  <!-- Centered Logo at Top of Hero, inside background -->
+  <div class="w-full flex justify-center items-center mt-4 mb-4">
+    <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template%2Fpublic%2FBookMark_cover_photo.png?raw=true" alt="BookMark Logo" class="w-80 h-28 rounded-xl shadow-lg" />
+  </div>
+  <div class="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-7xl mx-auto mt-12">
+    <!-- Left: Hero Content (centered) -->
+    <div class="flex-1 min-w-0 max-w-xl w-full md:pr-8 flex flex-col items-center justify-center h-full text-center">
+      <div class="relative z-20 max-w-2xl mx-auto">
+        <h1
+          class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-2"
+          style="color: #fff; letter-spacing: -1px; text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">
+          The Last Ticketing Tool<br />You'll Ever Need for
+        </h1>
+        <div class="w-full flex justify-center items-center mb-6 py-2" style="min-height:4rem;">
+          <span class="inline-flex justify-center items-center relative overflow-hidden align-top" style="min-height: 3.5rem; max-height: 4.5rem; max-width:500px; width:100%;" id="rotating-wrapper">
+            <span id="rotating-word" class="text-[var(--primary-green)] text-3xl md:text-4xl font-extrabold" style="white-space: nowrap; text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">Small Teams</span>
+          </span>
+        </div>
+        <p
+          class="text-lg md:text-xl font-medium mb-4 mt-8 text-center"
+          style="color: #e0eaff; text-shadow: 1px 1px 6px #09253c;">
+          BookMark turns your inbox into a full-featured ticket system. No training. No login headaches. No clutter.
+        </p>
+      </div>
+    </div>
+    <!-- Right: CTA/Payment (z-30 for top layer) -->
+    <div class="flex-1 min-w-0 max-w-md w-full bg-[var(--dark-navy)] rounded-2xl shadow-2xl p-8 flex flex-col items-center justify-center border border-[var(--primary-green)] z-30 relative backdrop-blur-md bg-opacity-90">
+      <h2 class="text-2xl font-bold text-[var(--primary-green)] mb-4 text-center">Support BookMark's Launch!</h2>
+      <p class="text-base text-slate-200 mb-6 text-center">Preorder now or donate to help us build the future of simple ticketing.</p>
+      <div class="flex flex-col gap-4 w-full items-center">
+        <a
+          href="https://buy.stripe.com/test_00w00i1IPe1cbnF01FcAo00"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-8 py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition"
+          aria-label="One Month Subscription with Stripe"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
+          One Month Subscription
+        </a>
+        <a
+          href="https://buy.stripe.com/test_3cI4gy2MT8GSfDV9CfcAo01"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-8 py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition"
+          aria-label="One Year Subscription with Stripe"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
+          One Year Subscription
+        </a>
+        <a
+          href="https://patreon.com/bookmarkapp?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-8 py-3 rounded-xl font-bold bg-[#ff424d] text-white hover:bg-[#ff7a89] transition"
+          aria-label="Support on Patreon"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="white"/><rect x="8" y="8" width="4" height="16" rx="2" fill="#ff424d"/><circle cx="20" cy="20" r="6" fill="#ff424d"/></svg>
+          Support on Patreon
+        </a>
+        <a
+          href="#LIFETIME_SUBSCRIPTION_LINK"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-8 py-3 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-yellow-300 hover:text-black transition"
+          aria-label="Lifetime Subscription"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#fff8e1"/><path d="M16 8v8l6 3" stroke="#bfa100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Lifetime Subscription
+        </a>
+      </div>
+      <span class="text-xs text-slate-400 mt-2 text-center">Payments are processed securely via Stripe or Patreon.</span>
+    </div>
+  </div>
+  <!-- Animated Background (unchanged, stays behind) -->
+  <div class="absolute inset-0 overflow-hidden w-full h-full pointer-events-none z-0">
     <svg class="absolute inset-0 w-full h-full left-0" viewBox="0 8 500 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <!-- Main teal brushstroke (top) -->
       <path d="M10 40 Q 60 0, 120 20 T 230 40 T 350 20 T 490 60" stroke="#19c6d1" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
-      <!-- Purple squiggle (middle) -->
       <path d="M30 70 Q 80 30, 150 60 T 270 50 T 400 90 T 480 50" stroke="#7c2ba0" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" />
-      <!-- Blue brushstroke (bottom) -->
       <path d="M0 120 Q 80 100, 200 130 T 400 120 T 500 135" stroke="#158eb3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
     </svg>
-    <!-- Animated shapes -->
     <div class="absolute w-8 h-8 border-4 border-[#19c6d1] rounded-full animate-float-up opacity-70" style="top: 20%; left: 10%;"></div>
     <div class="absolute w-6 h-6 border-4 border-[#7c2ba0] rounded-full animate-float-left opacity-70" style="top: 30%; right: 15%;"></div>
     <div class="absolute w-10 h-10 border-4 border-[#19c6d1] rotate-45 rounded-lg animate-float-diag opacity-70" style="bottom: 20%; left: 20%;"></div>
     <div class="absolute w-4 h-4 border-4 border-[#7c2ba0] rounded-full animate-float-down opacity-70" style="bottom: 30%; right: 25%;"></div>
   </div>
-
-  <!-- Content -->
-  <div class="relative z-20 max-w-2xl mx-auto">
-    <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template%2Fpublic%2FBookMark_cover_photo.png?raw=true" alt="BookMark Logo" class="w-48 h-14 rounded-xl shadow-lg mb-3 mx-auto" />
-    <h1
-      class="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-2"
-      style="color: #fff; letter-spacing: -1px; text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">
-      The Last Ticketing Tool<br />You'll Ever Need for
-    </h1>
-    <div class="w-full flex justify-center items-center mb-6" style="min-height:3.5rem;">
-      <span class="inline-flex justify-center items-center relative overflow-hidden align-top" style="max-height: 3.5rem; max-width:500px; width:100%;" id="rotating-wrapper">
-        <span id="rotating-word" class="text-[var(--primary-green)] text-3xl md:text-4xl font-extrabold" style="white-space: nowrap; text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">Small Teams</span>
-      </span>
-    </div>
-    <p
-      class="text-lg md:text-xl font-medium mb-4 mt-8"
-      style="color: #e0eaff; text-shadow: 1px 1px 6px #09253c;">
-      BookMark turns your inbox into a full-featured ticket system. No training. No login headaches. No clutter.
-    </p>
-    <div class="flex flex-col sm:flex-row justify-center gap-4">
-      
-    </div>
-  </div>
 </section>
 
 
   <!-- Features Grid -->
-<section class="py-20 px-4 sm:px-6 bg-[var(--deep-blue)] w-full min-w-0 max-w-none -mx-0" data-aos="fade-up">
+<section class="pt-8 pb-20 px-4 sm:px-6 bg-[var(--deep-blue)] w-full min-w-0 max-w-none -mx-0" data-aos="fade-up">
   <div class="max-w-4xl mx-auto px-4 md:px-8">
     <h2 class="text-4xl font-bold mb-10 text-[var(--primary-green)] text-center">Features Built for Busy Teams</h2>
     <div class="grid gap-10 md:grid-cols-3 justify-center">
@@ -252,7 +298,7 @@
         onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('email-ticket').scrollIntoView({behavior: 'smooth'})}"
       >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">📬 Email-to-Ticket</h3>
-        <p class="text-slate-400">No extra training needed. Just send an email and we turn it into a trackable task.</p>
+        <p class="text-slate-400">Turn unread emails into support tickets automatically. No new app or training required.</p>
       </div>
       <div
         class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
@@ -263,7 +309,7 @@
         onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('role-access').scrollIntoView({behavior: 'smooth'})}"
       >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">👥 Role-Based Access</h3>
-        <p class="text-slate-400">Admins, managers, and staff each have powerful, tailored dashboards.</p>
+        <p class="text-slate-400">Give each team member the tools they need, without overwhelming them.</p>
       </div>
       <div
         class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
@@ -274,7 +320,7 @@
         onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('visual-reports').scrollIntoView({behavior: 'smooth'})}"
       >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">📈 Visual Reports</h3>
-        <p class="text-slate-400">Get weekly/monthly stats on ticket trends. Make decisions with data, not guesses.</p>
+        <p class="text-slate-400">See what's working and what's not at a glance.</p>
       </div>
       <div
         class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
@@ -285,7 +331,7 @@
         onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('message-board').scrollIntoView({behavior: 'smooth'})}"
       >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">💬 Message Board</h3>
-        <p class="text-slate-400">Post public updates or send private messages. Stay connected.</p>
+        <p class="text-slate-400">Keep your team and clients in the loop, without email clutter.</p>
       </div>
       <div
         class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
@@ -296,7 +342,7 @@
         onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('ticket-management').scrollIntoView({behavior: 'smooth'})}"
       >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">🧰 Easy Ticket Management</h3>
-        <p class="text-slate-400">Create, assign, and comment on tickets with ease.</p>
+        <p class="text-slate-400">Assign, track, and resolve tickets in seconds.</p>
       </div>
       <div
         class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-6 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[220px] cursor-pointer outline-none"
@@ -307,7 +353,7 @@
         onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('prioritized-dashboards').scrollIntoView({behavior: 'smooth'})}"
       >
         <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">🎯 Prioritized Dashboards</h3>
-        <p class="text-slate-400">Everyone sees what matters most to them — prioritized, organized, and easy to act on.</p>
+        <p class="text-slate-400">See what matters most, with no distractions—just action.</p>
       </div>
     </div>
   </div>
