@@ -155,6 +155,23 @@
       text-decoration: none !important;
       color: inherit !important;
     }
+    .card-opaque {
+      position: relative;
+      overflow: hidden;
+    }
+    .card-opaque::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: #1a2730;
+      opacity: 1;
+      pointer-events: none;
+    }
+    .card-opaque > * {
+      position: relative;
+      z-index: 1;
+    }
   </style>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -197,9 +214,11 @@
 <section class="relative pb-12 px-4 sm:px-6 bg-[var(--deep-blue)] w-full min-w-0 min-h-[60vh] max-w-none mx-0">
   <!-- Centered Logo at Top of Hero, inside background -->
   <div class="w-full flex justify-center items-center mt-4 mb-4">
-    <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template%2Fpublic%2FBookMark_cover_photo.png?raw=true" alt="BookMark Logo" class="w-80 h-28 rounded-xl shadow-lg" />
+    <div class="inline-flex p-2 rounded-xl shadow-lg relative z-50">
+    <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template%2Fpublic%2FBookMark_cover_photo.png?raw=true" alt="BookMark Logo" class="w-[24rem] h-[8rem] rounded-xl shadow-lg" />
   </div>
-  <div class="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-7xl mx-auto mt-12">
+  </div>
+  <div class="flex flex-col md:flex-row items-center justify-center gap-20 w-full max-w-[90vw] mx-auto mt-12">
     <!-- Left: Hero Content (centered) -->
     <div class="flex-1 min-w-0 max-w-xl w-full md:pr-8 flex flex-col items-center justify-center h-full text-center">
       <div class="relative z-20 max-w-2xl mx-auto">
@@ -209,8 +228,8 @@
           The Last Ticketing Tool<br />You'll Ever Need for
         </h1>
         <div class="w-full flex justify-center items-center mb-6 py-2" style="min-height:4rem;">
-          <span class="inline-flex justify-center items-center relative overflow-hidden align-top" style="min-height: 3.5rem; max-height: 4.5rem; max-width:500px; width:100%;" id="rotating-wrapper">
-            <span id="rotating-word" class="text-[var(--primary-green)] text-3xl md:text-4xl font-extrabold" style="white-space: nowrap; text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">Small Teams</span>
+          <span class="inline-flex justify-center items-center relative overflow-visible align-top" style="min-height: 5rem; max-height: 6.5rem; max-width:500px; width:100%;" id="rotating-wrapper">
+            <span id="rotating-word" class="text-[var(--primary-green)] text-5xl md:text-6xl font-extrabold leading-none" style="white-space: nowrap; text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">Small Teams</span>
           </span>
         </div>
         <p
@@ -222,79 +241,253 @@
     </div>
     <!-- Right: CTA/Payment (z-30 for top layer) -->
     <div class="flex-1 min-w-0 max-w-md w-full flex flex-col items-center justify-center">
-      <div class="bg-[var(--dark-navy)] rounded-2xl shadow-2xl p-8 flex flex-col items-center justify-center border border-[var(--primary-green)] z-30 relative backdrop-blur-md bg-opacity-90 w-full">
-        <h2 class="text-2xl font-bold text-[var(--primary-green)] mb-4 text-center">Support BookMark's Launch!</h2>
-        <p class="text-base text-slate-200 mb-6 text-center">Preorder now or donate to help us build the future of simple ticketing.</p>
+      <div class="bg-[var(--dark-navy)] rounded-2xl shadow-2xl p-8 flex flex-col items-center justify-center border border-[var(--primary-green)] z-30 relative w-full">
+        <h2 class="text-2xl font-bold text-[var(--primary-green)] mb-4 text-center">Donate to BookMark!</h2>
+        <p class="text-base text-slate-200 mb-6 text-center">Join our Patreon for special behind the scenes access</p>
         <div class="flex flex-col gap-4 w-full items-center">
-          <a
-            href="https://buy.stripe.com/9B66oG66C3JmfrlaRHcjS01"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-8 py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition"
-            aria-label="One Month Subscription with Stripe"
-          >
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
-            One Month Subscription
-          </a>
-          <a
-            href="https://buy.stripe.com/4gMfZg1Qmfs42Ezf7XcjS00"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-8 py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition"
-            aria-label="One Year Subscription with Stripe"
-          >
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
-            One Year Subscription
-          </a>
           <a
             href="https://patreon.com/bookmarkapp?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-8 py-3 rounded-xl font-bold bg-[#ff424d] text-white hover:bg-[#ff7a89] transition"
+            class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-8 py-3 rounded-xl font-bold bg-[#ff424d] text-white hover:bg-red-700 transition"
             aria-label="Support on Patreon"
           >
             <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="white"/><rect x="8" y="8" width="4" height="16" rx="2" fill="#ff424d"/><circle cx="20" cy="20" r="6" fill="#ff424d"/></svg>
             Support on Patreon
           </a>
-          <a
-            href="https://buy.stripe.com/4gM00i7aG5Ru7YT0d3cjS02"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-8 py-3 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-yellow-300 hover:text-black transition"
-            aria-label="Lifetime Subscription"
-          >
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#fff8e1"/><path d="M16 8v8l6 3" stroke="#bfa100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Lifetime Subscription
-          </a>
         </div>
-        <span class="text-xs text-slate-400 mt-2 text-center">Payments are processed securely via Stripe or Patreon.</span>
       </div>
     </div>
   </div>
   <!-- Newsletter Embed Centered Below -->
   <div class="flex flex-col items-center justify-center w-full mt-8 px-4 sm:px-6">
-    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-    <iframe 
-      src="https://subscribe-forms.beehiiv.com/ce877265-3190-48ad-b899-0c0335830552" 
-      class="beehiiv-embed w-full max-w-lg" 
-      data-test-id="beehiiv-embed" 
-      frameborder="0" 
-      scrolling="no" 
-      style="width:100%; height:auto; margin:0; border-radius:12px !important; background-color:transparent; box-shadow:0 0 #0000;"
-      title="Newsletter signup form">
-    </iframe>
+    <div class="w-full max-w-md mx-auto">
+      <!-- Custom Newsletter Signup Form -->
+      <div class="bg-[var(--dark-navy)] rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center z-30 relative w-full border border-[var(--primary-green)] mb-8">
+        <h3 class="text-xl font-bold text-[var(--primary-green)] mb-2 text-center">Stay Updated!</h3>
+        <p class="text-sm text-slate-300 mb-6 text-center">Get the latest updates on BookMark's development and launch.</p>
+        
+        <form id="newsletter-form" class="space-y-4 w-full">
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-200 mb-2">Email Address</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              placeholder="your@email.com"
+              class="w-full px-4 py-3 bg-[var(--deep-blue)] border border-slate-600 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--primary-green)] focus:border-transparent transition-all"
+            />
+          </div>
+          
+          <div class="flex items-start space-x-3">
+            <input 
+              type="checkbox" 
+              id="updates" 
+              name="updates" 
+              class="mt-1 w-4 h-4 text-[var(--primary-green)] bg-[var(--deep-blue)] border-slate-600 rounded focus:ring-[var(--primary-green)] focus:ring-2"
+            />
+            <label for="updates" class="text-sm text-slate-300">
+              I want to receive updates about BookMark's development, new features, and launch announcements.
+            </label>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="w-full btn-primary inline-flex items-center justify-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition-all transform hover:scale-105"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            Subscribe for Updates
+          </button>
+        </form>
+        
+        <div id="form-message" class="mt-4 text-sm text-center hidden"></div>
+        <p class="text-xs text-slate-400 mt-3 text-center">We respect your privacy. Unsubscribe at any time.</p>
+      </div>
+    </div>
+    <!-- Payment Cards Row -->
+    <div class="w-full max-w-5xl mx-auto px-2 sm:px-4">
+      <div class="bg-[#1a2730] border border-[var(--primary-green)] rounded-2xl shadow-2xl p-2 sm:p-6 md:p-8 flex flex-col items-center justify-center w-full card-opaque">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-[var(--primary-green)] text-center mb-2">Choose Your Plan & Start Simplifying Support Today</h2>
+        <p class="text-lg text-slate-200 text-center mb-8">No onboarding. No hassle. Just powerful ticketing for teams of any size. Pick your plan and get instant access!</p>
+        <div class="flex flex-col md:flex-row flex-wrap gap-4 md:gap-6 justify-center items-stretch w-full">
+          <!-- Solo-Tech Subscription Card -->
+          <div class="flex-1 min-w-0 bg-[var(--dark-navy)] rounded-2xl shadow-2xl p-4 sm:p-6 flex flex-col items-center justify-center max-w-xs w-full card-opaque border border-[var(--primary-green)]" style="background-color: #1a2730 !important; opacity: 1 !important;">
+            <h4 class="text-lg sm:text-xl md:text-2xl font-bold text-[var(--primary-green)] mb-2 text-center">Solo-Tech Subscription</h4>
+            <p class="text-sm sm:text-base md:text-lg text-slate-300 mb-2 text-center">Perfect for solo operators and freelancers.</p>
+            <ul class="list-disc pl-5 text-slate-300 text-xs sm:text-sm md:text-base mb-4 w-full">
+              <li>1 user account</li>
+              <li>Unlimited tickets</li>
+              <li>Administer 1 organization</li>
+              <li>Email support</li>
+            </ul>
+            <div class="flex flex-col gap-2 w-full">
+              <a
+                href="https://buy.stripe.com/3cI4gyeD8cfS4MH0d3cjS03"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
+                aria-label="Solo-Tech One Month Subscription"
+          >
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
+                One Month – $10
+          </a>
+          <a
+                href="https://buy.stripe.com/9B600idz493Ga710d3cjS04"
+            target="_blank"
+            rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
+                aria-label="Solo-Tech One Year Subscription"
+          >
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
+                One Year – $100
+          </a>
+          <a
+                href="https://buy.stripe.com/bJe7sKdz44NqenhcZPcjS05"
+            target="_blank"
+            rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-orange-500 hover:text-black transition w-full justify-center"
+                aria-label="Solo-Tech Lifetime Subscription"
+              >
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#fff8e1"/><path d="M16 8v8l6 3" stroke="#bfa100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Lifetime – $500
+              </a>
+            </div>
+          </div>
+          <!-- Small-Team Subscription Card -->
+          <div class="flex-1 min-w-0 bg-[var(--dark-navy)] rounded-2xl shadow-2xl p-4 sm:p-6 flex flex-col items-center justify-center max-w-xs w-full card-opaque border border-[var(--primary-green)]" style="background-color: #1a2730 !important; opacity: 1 !important;">
+            <h4 class="text-lg sm:text-xl md:text-2xl font-bold text-[var(--primary-green)] mb-2 text-center">Small-Team Subscription</h4>
+            <p class="text-sm sm:text-base md:text-lg text-slate-300 mb-2 text-center">Best for teams of up to 5 users.</p>
+            <ul class="list-disc pl-5 text-slate-300 text-xs sm:text-sm md:text-base mb-4 w-full">
+              <li>Up to 5 users/organization</li>
+              <li>Team collaboration tools</li>
+              <li>Administer 2 organizations</li>
+              <li>Priority email support</li>
+            </ul>
+            <div class="flex flex-col gap-2 w-full">
+              <a
+                href="https://buy.stripe.com/4gM9AS2Uq7ZCbb56BrcjS06"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
+                aria-label="Small-Team One Month Subscription"
+          >
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
+                One Month – $25
+              </a>
+              <a
+                href="https://buy.stripe.com/cNi28qamS4Nq4MH6BrcjS07"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
+                aria-label="Small-Team One Year Subscription"
+              >
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
+                One Year – $250
+              </a>
+              <a
+                href="https://buy.stripe.com/dRm14mcv093Gfrl8JzcjS08"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-orange-500 hover:text-black transition w-full justify-center"
+                aria-label="Small-Team Lifetime Subscription"
+              >
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#fff8e1"/><path d="M16 8v8l6 3" stroke="#bfa100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Lifetime – $1250
+              </a>
+            </div>
+          </div>
+          <!-- Small Business Subscription Card -->
+          <div class="flex-1 min-w-0 bg-[var(--dark-navy)] rounded-2xl shadow-2xl p-4 sm:p-6 flex flex-col items-center justify-center max-w-xs w-full card-opaque border border-[var(--primary-green)]" style="background-color: #1a2730 !important; opacity: 1 !important;">
+            <h4 class="text-lg sm:text-xl md:text-2xl font-bold text-[var(--primary-green)] mb-2 text-center">Small Business Subscription</h4>
+            <p class="text-sm sm:text-base md:text-lg text-slate-300 mb-2 text-center">Ideal for growing businesses and organizations.</p>
+            <ul class="list-disc pl-5 text-slate-300 text-xs sm:text-sm md:text-base mb-4 w-full">
+              <li>Up to 20 users/organization</li>
+              <li>Advanced reporting</li>
+              <li>Administer up to 5 organizations</li>
+              <li>Phone & priority support</li>
+            </ul>
+            <div class="flex flex-col gap-2 w-full">
+              <a
+                href="https://buy.stripe.com/3cIbJ07aG2Fi4MHbVLcjS09"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
+                aria-label="Small Business One Month Subscription"
+              >
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
+                One Month – $40
+              </a>
+              <a
+                href="https://buy.stripe.com/eVq28q66C3Jm92X5xncjS0a"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
+                aria-label="Small Business One Year Subscription"
+              >
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
+                One Year – $400
+          </a>
+          <a
+            href="https://buy.stripe.com/eVq3cu8eK0xa6UPgc1cjS0b"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-orange-500 hover:text-black transition w-full justify-center"
+            aria-label="Small Business Lifetime Subscription"
+          >
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#fff8e1"/><path d="M16 8v8l6 3" stroke="#bfa100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Lifetime – $2000
+          </a>
+        </div>
+      </div>
+    </div>
+        <span class="text-xs text-slate-400 mt-2 text-center">Payments are processed securely via Stripe or Patreon.</span>
+  </div>
+    </div>
   </div>
   <!-- Animated Background (unchanged, stays behind) -->
-  <div class="absolute inset-0 overflow-hidden w-full h-full pointer-events-none z-0">
-    <svg class="absolute inset-0 w-full h-full left-0" viewBox="0 8 500 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <path d="M10 40 Q 60 0, 120 20 T 230 40 T 350 20 T 490 60" stroke="#19c6d1" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
-      <path d="M30 70 Q 80 30, 150 60 T 270 50 T 400 90 T 480 50" stroke="#7c2ba0" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" />
-      <path d="M0 120 Q 80 100, 200 130 T 400 120 T 500 135" stroke="#158eb3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+  <div class="absolute overflow-visible ml-[-60px] w-[calc(100%+120px)] pointer-events-none z-0" style="top: -20%; height: 120%;">
+    <!-- Jazz Cup SVG 4 (above original, for logo area) -->
+    <svg class="absolute w-full h-full left-0 opacity-50 scale-y-75" style="top:-25%;" viewBox="-100 8 700 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path d="M-90 40 Q -40 0, 120 20 T 230 40 T 350 20 T 590 60" stroke="#19c6d1" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+      <path d="M-70 70 Q -20 30, 150 60 T 270 50 T 400 90 T 580 50" stroke="#7c2ba0" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+      <path d="M-100 120 Q -20 100, 200 130 T 400 120 T 600 135" stroke="#158eb3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
     </svg>
+    <!-- Jazz Cup SVG 1 -->
+    <svg class="absolute w-full h-full left-0 opacity-60" style="top:0;" viewBox="-100 8 700 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path d="M-90 40 Q -40 0, 120 20 T 230 40 T 350 20 T 590 60" stroke="#19c6d1" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
+      <path d="M-70 70 Q -20 30, 150 60 T 270 50 T 400 90 T 580 50" stroke="#7c2ba0" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" />
+      <path d="M-100 120 Q -20 100, 200 130 T 400 120 T 600 135" stroke="#158eb3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+    </svg>
+    <!-- Jazz Cup SVG 2 (flipped, faded, offset) -->
+    <svg class="absolute w-full h-full left-0 opacity-40 scale-x-[-100] mt-[-2rem]" style="top:33%;" viewBox="-100 8 700 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path d="M-90 40 Q -40 0, 120 20 T 230 40 T 350 20 T 590 60" stroke="#19c6d1" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+      <path d="M-70 70 Q -20 30, 150 60 T 270 50 T 400 90 T 580 50" stroke="#7c2ba0" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3" />
+      <path d="M-100 120 Q -20 100, 200 130 T 400 120 T 600 135" stroke="#158eb3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" />
+    </svg>
+    <!-- Jazz Cup SVG 3 (rotated, faded, offset) -->
+    <svg class="absolute w-full h-full left-0 opacity-30 rotate-2 mt-[-2rem]" style="top:66%;" viewBox="-100 8 700 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path d="M-90 40 Q -40 0, 120 20 T 230 40 T 350 20 T 590 60" stroke="#19c6d1" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" />
+      <path d="M-70 70 Q -20 30, 150 60 T 270 50 T 400 90 T 580 50" stroke="#7c2ba0" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.2" />
+      <path d="M-100 120 Q -20 100, 200 130 T 400 120 T 600 135" stroke="#158eb3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.3" />
+    </svg>
+    <!-- Floating shapes (original + new ones) -->
     <div class="absolute w-8 h-8 border-4 border-[#19c6d1] rounded-full animate-float-up opacity-70" style="top: 20%; left: 10%;"></div>
     <div class="absolute w-6 h-6 border-4 border-[#7c2ba0] rounded-full animate-float-left opacity-70" style="top: 30%; right: 15%;"></div>
     <div class="absolute w-10 h-10 border-4 border-[#19c6d1] rotate-45 rounded-lg animate-float-diag opacity-70" style="bottom: 20%; left: 20%;"></div>
     <div class="absolute w-4 h-4 border-4 border-[#7c2ba0] rounded-full animate-float-down opacity-70" style="bottom: 30%; right: 25%;"></div>
+    <!-- New floating shapes for logo/hero area -->
+    <div class="absolute w-5 h-5 border-4 border-[#19c6d1] rounded-full animate-float-random1 opacity-60" style="top: 5%; left: 20%;"></div>
+    <div class="absolute w-7 h-7 border-4 border-[#7c2ba0] rotate-45 rounded-lg animate-float-random2 opacity-60" style="top: 8%; right: 25%;"></div>
+    <div class="absolute w-6 h-6 border-4 border-[#158eb3] rounded-full animate-float-random3 opacity-60" style="top: 12%; left: 60%;"></div>
+    <div class="absolute w-9 h-9 border-4 border-[#19c6d1] rotate-12 rounded-lg animate-float-random4 opacity-60" style="top: 15%; right: 8%;"></div>
+    <!-- Additional floating shapes for bottom area -->
+    <div class="absolute w-5 h-5 border-4 border-[#158eb3] rounded-full animate-float-random5 opacity-60" style="top: 70%; left: 15%;"></div>
+    <div class="absolute w-8 h-8 border-4 border-[#7c2ba0] rotate-30 rounded-lg animate-float-random6 opacity-60" style="top: 75%; right: 20%;"></div>
+    <div class="absolute w-6 h-6 border-4 border-[#19c6d1] rounded-full animate-float-random7 opacity-60" style="top: 80%; left: 70%;"></div>
+    <div class="absolute w-7 h-7 border-4 border-[#158eb3] rotate-60 rounded-lg animate-float-random8 opacity-60" style="top: 85%; right: 10%;"></div>
   </div>
 </section>
 
@@ -311,7 +504,7 @@
         onclick="document.getElementById('email-ticket').scrollIntoView({behavior: 'smooth'})"
         onkeydown="if(event.key==='Enter'||event.key===' '){document.getElementById('email-ticket').scrollIntoView({behavior: 'smooth'})}"
       >
-        <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]">📬 Email-to-Ticket</h3>
+        <h3 class="text-xl font-bold mb-2 text-[var(--accent-blue)]"> Email-to-Ticket</h3>
         <p class="text-slate-400">Turn unread emails into support tickets automatically. No new app or training required.</p>
       </div>
       <div
@@ -670,7 +863,7 @@
     <p class="text-base text-white mt-6">*If you would like to reach out for any reason at all, see below</p>
     <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
       <div class="pixel-button">
-        <a href="https://discord.gg/TCm5PDCR" class="btn-primary inline-flex items-center gap-2 text-base shadow-lg" aria-label="Discord">
+        <a href="https://patreon.com/bookmarkapp?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" class="btn-primary inline-flex items-center gap-2 text-base shadow-lg" aria-label="Discord">
           <img src="https://github.com/bookisonfire/BookMark/blob/main/vite_template/public/discord_logo.png?raw=true" class="w-5 h-5" alt="Discord logo" />
           Discord
         </a>
@@ -755,6 +948,77 @@
   };
   backToTopBtn.addEventListener('click', handleBackToTop);
   backToTopBtn.addEventListener('keydown', handleBackToTop);
+
+  // Newsletter Form Handling
+  const newsletterForm = document.getElementById('newsletter-form');
+  const formMessage = document.getElementById('form-message');
+  
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const updates = document.getElementById('updates').checked;
+      
+      if (!email) {
+        showMessage('Please enter your email address.', 'error');
+        return;
+      }
+      
+      if (!updates) {
+        showMessage('Please check the box to receive updates.', 'error');
+        return;
+      }
+      
+      // Show loading state
+      const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = `<svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg> Subscribing...`;
+      submitBtn.disabled = true;
+      
+      try {
+        // Replace with your actual Beehiiv publication ID
+        const publicationId = '8cf8bfc7-76ca-431b-8bfc-08676d606903';
+
+        const response = await fetch('https://api.beehiiv.com/v2/publications/' + publicationId + '/subscriptions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: email,
+            // You can add more fields if needed, see Beehiiv API docs
+          })
+        });
+
+        if (response.ok) {
+          showMessage('Thanks for subscribing! Please check your email to confirm your subscription.', 'success');
+          newsletterForm.reset();
+        } else {
+          showMessage('There was a problem subscribing. Please try again.', 'error');
+        }
+      } catch (error) {
+        showMessage('Something went wrong. Please try again or contact us directly.', 'error');
+      } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+  
+  const showMessage = (message, type) => {
+    formMessage.textContent = message;
+    formMessage.className = `mt-4 text-sm text-center ${type === 'success' ? 'text-[var(--primary-green)]' : 'text-red-400'}`;
+    formMessage.classList.remove('hidden');
+    
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+      formMessage.classList.add('hidden');
+    }, 5000);
+  };
 </script>
 
 <style>
