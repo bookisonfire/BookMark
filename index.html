@@ -18,6 +18,19 @@
     body {
       background: var(--deep-blue);
       color: #f8fafc;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    html {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+    }
+    * {
+      box-sizing: border-box;
     }
     .btn-primary {
       background: var(--primary-green);
@@ -497,7 +510,7 @@
     <h2 class="text-4xl font-bold mb-10 text-[var(--primary-green)] text-center">Features Built for Busy Teams</h2>
     <div class="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full">
       <div
-        class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-8 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[240px] w-full cursor-pointer outline-none"
+        class="group relative bg-[var(--dark-navy)] border border-[var(--primary-green)] rounded-2xl p-12 shadow-[0_0_15px_rgba(63,207,142,0.2)] transition-transform transform hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(63,207,142,0.4)] flex flex-col justify-center min-h-[320px] w-full cursor-pointer outline-none"
         tabindex="0"
         role="button"
         aria-label="Go to Email-to-Ticket"
@@ -945,9 +958,9 @@
 
 <!-- Back to Top Button -->
 <button id="back-to-top" aria-label="Back to top" tabindex="0"
-  class="hidden fixed bottom-6 right-6 z-50 bg-[var(--primary-green)] text-white rounded-full shadow-lg w-14 h-14 flex items-center justify-center transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[var(--accent-blue)]"
+  class="hidden fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-[var(--primary-green)] text-white rounded-full shadow-lg w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[var(--accent-blue)]"
   style="box-shadow: 0 4px 24px 0 rgba(63, 207, 142, 0.25);">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 sm:w-7 sm:h-7">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
   </svg>
 </button>
