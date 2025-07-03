@@ -239,8 +239,8 @@
         The Last Ticketing Tool<br />You'll Ever Need for
       </h1>
       <div class="w-full flex justify-center items-center mb-6 py-2" style="min-height:4rem;">
-        <span class="inline-flex justify-center items-center relative overflow-hidden align-top px-2" style="min-height: 5rem; max-height: 6.5rem; max-width:100%; width:100%;" id="rotating-wrapper">
-          <span id="rotating-word" class="text-[var(--primary-green)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight text-center" style="text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">Small Teams</span>
+        <span class="inline-flex justify-center items-center relative align-top px-2 w-auto mx-auto" style="min-height: 5rem; max-height: 6.5rem;" id="rotating-wrapper">
+          <span id="rotating-word" class="text-[var(--primary-green)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight text-center whitespace-nowrap" style="text-shadow: 2px 2px 8px #09253c, 0 2px 12px #000;">Small Teams</span>
         </span>
       </div>
       <p
@@ -334,40 +334,33 @@
           <ul class="list-disc pl-5 text-slate-300 text-xs sm:text-sm md:text-base mb-4 w-full">
             <li>1 user account</li>
             <li>Unlimited tickets</li>
-            <li>Administer 1 organization</li>
-            <li>Email support</li>
+            <li>Administer 1 organization with 5 users</li>
+            <li>Phone & Email support</li>
           </ul>
           <div class="flex flex-col gap-2 w-full">
             <a
               href="https://buy.stripe.com/3cI4gyeD8cfS4MH0d3cjS03"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
+              class="btn-primary flex flex-col items-center gap-1 text-base shadow-lg px-6 py-6 sm:px-8 sm:py-6 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center mb-4"
               aria-label="Solo-Tech One Month Subscription"
-        >
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
-              One Month – $10
-        </a>
-        <a
-              href="https://buy.stripe.com/9B600idz493Ga710d3cjS04"
-          target="_blank"
-          rel="noopener noreferrer"
-              class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
-              aria-label="Solo-Tech One Year Subscription"
-        >
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
-              One Year – $100
-        </a>
-        <a
-              href="https://buy.stripe.com/bJe7sKdz44NqenhcZPcjS05"
-          target="_blank"
-          rel="noopener noreferrer"
-              class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-orange-500 hover:text-black transition w-full justify-center"
-              aria-label="Solo-Tech Lifetime Subscription"
             >
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#fff8e1"/><path d="M16 8v8l6 3" stroke="#bfa100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Lifetime – $500
+              <span class="block text-base font-bold text-center">One Month</span>
+              <span class="block text-2xl md:text-3xl font-extrabold text-center">$10</span>
             </a>
+            <div class="relative w-full mb-2">
+              <span class="absolute top-1 left-4 -translate-y-1/3 -translate-x-1/4 z-10 bg-yellow-300 text-red-600 font-extrabold rounded-lg px-2 py-1 shadow-lg text-base -rotate-12">2 Months Free!</span>
+              <a
+                href="https://buy.stripe.com/9B600idz493Ga710d3cjS04"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary flex flex-col items-center gap-1 text-base shadow-lg px-6 py-6 sm:px-8 sm:py-6 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-orange-500 hover:text-black transition w-full justify-center pl-10"
+                aria-label="Solo-Tech One Year Subscription"
+              >
+                <span class="block text-base font-bold mb-1 text-center">One Year</span>
+                <span class="block text-center"><span class="line-through text-red-500 mr-2 text-2xl md:text-3xl font-extrabold">$120</span> <span class="text-2xl md:text-3xl font-extrabold">$100</span></span>
+              </a>
+            </div>
           </div>
         </div>
         <!-- Small-Team Subscription Card -->
@@ -375,42 +368,35 @@
           <h4 class="text-lg sm:text-xl md:text-2xl font-bold text-[var(--primary-green)] mb-2 text-center">Small-Team Subscription</h4>
           <p class="text-sm sm:text-base md:text-lg text-slate-300 mb-2 text-center">Best for teams of up to 5 users.</p>
           <ul class="list-disc pl-5 text-slate-300 text-xs sm:text-sm md:text-base mb-4 w-full">
-            <li>Up to 5 users/organization</li>
+            <li>Up to 10 users/organization</li>
             <li>Team collaboration tools</li>
-            <li>Administer 2 organizations</li>
-            <li>Priority email support</li>
+            <li>Administer up to 2 organizations</li>
+            <li>Phone & Email support</li>
           </ul>
           <div class="flex flex-col gap-2 w-full">
             <a
               href="https://buy.stripe.com/4gM9AS2Uq7ZCbb56BrcjS06"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
+              class="btn-primary flex flex-col items-center gap-1 text-base shadow-lg px-6 py-6 sm:px-8 sm:py-6 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center mb-4"
               aria-label="Small-Team One Month Subscription"
-        >
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
-                One Month – $25
-              </a>
-            <a
-              href="https://buy.stripe.com/cNi28qamS4Nq4MH6BrcjS07"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
-              aria-label="Small-Team One Year Subscription"
             >
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
-                One Year – $250
-              </a>
-            <a
-              href="https://buy.stripe.com/dRm14mcv093Gfrl8JzcjS08"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-orange-500 hover:text-black transition w-full justify-center"
-              aria-label="Small-Team Lifetime Subscription"
-            >
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#fff8e1"/><path d="M16 8v8l6 3" stroke="#bfa100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Lifetime – $1250
+              <span class="block text-base font-bold text-center">One Month</span>
+              <span class="block text-2xl md:text-3xl font-extrabold text-center">$25</span>
             </a>
+            <div class="relative w-full mb-2">
+              <span class="absolute top-1 left-4 -translate-y-1/3 -translate-x-1/4 z-10 bg-yellow-300 text-red-600 font-extrabold rounded-lg px-2 py-1 shadow-lg text-base -rotate-12">2 Months Free!</span>
+              <a
+                href="https://buy.stripe.com/cNi28qamS4Nq4MH6BrcjS07"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary flex flex-col items-center gap-1 text-base shadow-lg px-6 py-6 sm:px-8 sm:py-6 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-orange-500 hover:text-black transition w-full justify-center pl-10"
+                aria-label="Small-Team One Year Subscription"
+              >
+                <span class="block text-base font-bold mb-1 text-center">One Year</span>
+                <span class="block text-center"><span class="line-through text-red-500 mr-2 text-2xl md:text-3xl font-extrabold">$300</span> <span class="text-2xl md:text-3xl font-extrabold">$250</span></span>
+              </a>
+            </div>
           </div>
         </div>
         <!-- Small Business Subscription Card -->
@@ -421,41 +407,34 @@
             <li>Up to 20 users/organization</li>
             <li>Advanced reporting</li>
             <li>Administer up to 5 organizations</li>
-            <li>Phone & priority support</li>
+            <li>Phone & Email support</li>
           </ul>
           <div class="flex flex-col gap-2 w-full">
             <a
               href="https://buy.stripe.com/3cIbJ07aG2Fi4MHbVLcjS09"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
+              class="btn-primary flex flex-col items-center gap-1 text-base shadow-lg px-6 py-6 sm:px-8 sm:py-6 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center mb-4"
               aria-label="Small Business One Month Subscription"
             >
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
-              One Month – $40
+              <span class="block text-base font-bold text-center">One Month</span>
+              <span class="block text-2xl md:text-3xl font-extrabold text-center">$40</span>
             </a>
-            <a
-              href="https://buy.stripe.com/eVq28q66C3Jm92X5xncjS0a"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-[var(--primary-green)] text-[var(--deep-blue)] hover:bg-[var(--accent-blue)] hover:text-white transition w-full justify-center"
-              aria-label="Small Business One Year Subscription"
-            >
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#635BFF"/><text x="16" y="22" text-anchor="middle" fill="#fff" font-size="14" font-family="Arial" font-weight="bold">S</text></svg>
-              One Year – $400
-      </a>
-      <a
-        href="https://buy.stripe.com/eVq3cu8eK0xa6UPgc1cjS0b"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-primary inline-flex items-center gap-2 text-base shadow-lg px-6 py-3 sm:px-8 sm:py-3 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-orange-500 hover:text-black transition w-full justify-center"
-        aria-label="Small Business Lifetime Subscription"
-      >
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#fff8e1"/><path d="M16 8v8l6 3" stroke="#bfa100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Lifetime – $2000
-      </a>
-    </div>
-  </div>
+            <div class="relative w-full mb-2">
+              <span class="absolute top-1 left-4 -translate-y-1/3 -translate-x-1/4 z-10 bg-yellow-300 text-red-600 font-extrabold rounded-lg px-2 py-1 shadow-lg text-base -rotate-12">2 Months Free!</span>
+              <a
+                href="https://buy.stripe.com/eVq28q66C3Jm92X5xncjS0a"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary flex flex-col items-center gap-1 text-base shadow-lg px-6 py-6 sm:px-8 sm:py-6 rounded-xl font-bold bg-yellow-400 text-[var(--deep-blue)] hover:bg-orange-500 hover:text-black transition w-full justify-center pl-10"
+                aria-label="Small Business One Year Subscription"
+              >
+                <span class="block text-base font-bold mb-1 text-center">One Year</span>
+                <span class="block text-center"><span class="line-through text-red-500 mr-2 text-2xl md:text-3xl font-extrabold">$480</span> <span class="text-2xl md:text-3xl font-extrabold">$400</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
         <span class="block text-xs text-slate-400 mt-6 text-center w-full">Payments are processed securely via Stripe or Patreon.</span>
   </div>
     </div>
